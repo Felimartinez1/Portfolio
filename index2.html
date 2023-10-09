@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neural Style Transfer</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Red Hat Display&display=swap">
+  <style>
+    body {
+      background-image: url(deep2.jpg);
+      background-size: cover;
+    }
+    .container {
+      margin-top: 40px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-family: 'Montserrat', sans-serif;
+    }
+    h2 {
+      font-size:larger;    
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+    }
+    p {
+      font-family: 'Red Hat Display', sans-serif;
+    }
+    .image-container {
+      text-align: center;
+    }
+    .image-container img {
+      width: 300px;
+      height: 300px; 
+      object-fit: cover; 
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 5px;
+    }
+    .separator {
+      height: 20px;
+      background-color: #165982;
+      border-top: 1px solid #000000;
+      border-bottom: 1px solid #000000;
+      margin: 20px 0; 
+    }
+    
+    .context-container {
+      margin-top: 20px;
+      text-align: justify;
+    }
+    .logo-container {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .logo-container img {
+      width: 300px;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="container">
+    <h1>Neural Style Transfer</h1>
+    <div class="logo-container">
+        <img src="Images/deeplearning.png" alt="Logo">
+    </div>
+    <div class="context-container">
+        <h2>Context</h2>
+        <p>This is a deep learning algorithm called Neural Style Transfer that takes a content image and a style image as input and returns a new artistic image. To carry out the project, I have recycled a Convolutional Neural Network that has been used in the past for another purpose through a method called transfer learning. Some tools I have used were TensorFlow, Numpy and Pandas. If you want to know more details about the code, you can check it on my <a href="https://github.com/Felimartinez1/Neural-Style-Transfer"  target="_blank">GitHub</a>.</p>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <h2>Content</h2>
+        <div class="image-container">
+          <img src="Images/C_image3.jpg" alt="Imagen de Contenido">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <h2>Style</h2>
+        <div class="image-container">
+          <img src="Images/S_image2.jpg" alt="Imagen de Estilo">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <h2>New image</h2>
+        <div class="image-container">
+          <img src="Images/Imagen_colorida.jpg" alt="Imagen Generada">
+        </div>
+      </div>
+    </div>
+
+    <div class="separator"></div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <h2>Content</h2>
+        <div class="image-container">
+          <img src="Images/C_image10.jpg" alt="Otra Imagen">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <h2>Style</h2>
+        <div class="image-container">
+          <img src="Images/S_image6.jpg" alt="Otra Imagen">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <h2>New image</h2>
+        <div class="image-container">
+          <img src="Images/G_6000.jpg" alt="Otra Imagen">
+        </div>
+      </div>
+    </div>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

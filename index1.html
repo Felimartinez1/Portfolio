@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Airline Passengers Dashboard</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Red Hat Display&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat&display=swap">
+    
+    <style>
+        body {
+            background-image: url('viole.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .container {
+            margin-top: 50px;
+            margin-bottom: 50px;
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            text-align: center;
+            color: #333333;
+        }
+
+        h4 {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333333;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        p {
+            font-family: 'Red Hat Display', sans-serif;
+            font-size: 16px;
+        }
+
+        li {
+            font-family: 'Red Hat Display', sans-serif;
+            font-size: 20px;
+        }
+
+        .dropdown {
+            background-color: #f9f9f9;
+            color: #333333;
+            width: 50%;
+            margin: 0 auto;
+        }
+
+        .graph-container {
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+
+        .graph-title {
+            text-align: center;
+            color: #333333;
+        }
+
+        .stats-bar {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        }
+
+        .stat {
+            flex-basis: 30%;
+            text-align: center;
+        }
+
+        .stat-label {
+            font-family: 'Red Hat Display', sans-serif;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .stat-bar {
+            background-color: #f2f2f2;
+            height: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .stat-value {
+            background-color: #4caf50;
+            height: 100%;
+        }
+
+        .stat-percentage {
+            font-family: 'Red Hat Display', sans-serif;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .image-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .image-row img {
+            max-width: 300px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Airline Passengers</h1>
+        <br>
+        <h4><strong>Challenges</strong><h4>
+        <li>What factors lead to customer satisfaction for an Airline?</li>
+        <li>Make a sentiment prediction > 95%</li>
+        <br>
+        <h2>Some Analysis</h2>
+        <div class="dropdown">
+            <select id="dropdown" class="custom-select">
+                <option value="satisfaction">Satisfaction and others</option>
+                <option value="Class">Age and others</option>
+                <option value="Flight Distance">Flight Distance and others</option>
+            </select>
+        </div>
+        <div class="row graph-container">
+            <div class="col-lg-6">
+                <h2 id="graph1-title" class="graph-title"></h2>
+                <p id="graph1-description"></p>
+                <div id="graph1"></div>
+            </div>
+            <div class="col-lg-6">
+                <h2 id="graph2-title" class="graph-title"></h2>
+                <p id="graph2-description"></p>
+                <div id="graph2"></div>
+            </div>
+            <div class="col-lg-12">
+                <h2 id="graph3-title" class="graph-title"></h2>
+                <p id="graph3-description"></p>
+                <div id="graph3"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <h2>Predictions</h2>
+                <br>
+                <div class="stats-bar">
+                    <div class="stat">
+                        <div class="stat-label">Accuracy</div>
+                        <div class="stat-bar">
+                            <div class="stat-value" style="width: 96%;"></div>
+                        </div>
+                        <div class="stat-percentage">96.0%</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-label">Precision</div>
+                        <div class="stat-bar">
+                            <div class="stat-value" style="width: 96.5%;"></div>
+                        </div>
+                        <div class="stat-percentage">96.5%</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-label">Recall</div>
+                        <div class="stat-bar">
+                            <div class="stat-value" style="width: 94.3%;"></div>
+                        </div>
+                        <div class="stat-percentage">94.3%</div>
+                    </div>
+                </div>
+                <br>
+                <div class="image-row">
+                    <img src="Images/confusion_matrix.png" alt="Prediction 1">
+                    <img src="Images/distribution_pred.png" alt="Prediction 2">
+                    <img src="Images/importance.png" alt="Prediction 3">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.0.0/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var dropdown = document.getElementById('dropdown');
+            dropdown.addEventListener('change', function () {
+                updateGraph(this.value);
+            });
+            updateGraph(dropdown.value);
+        });
+        
+
+        function updateGraph(value) {
+            if (value === 'satisfaction') {
+                d3.csv('Airline_Passengers_df.csv').then(function (data) {
+                    var satisfiedData = data.filter(function (d) { return d['satisfaction'] === 'satisfied'; });
+                    var dissatisfiedData = data.filter(function (d) { return d['satisfaction'] === 'neutral or dissatisfied'; });
+
+                    var satisfiedTrace1 = {
+                        x: satisfiedData.map(function (d) { return d['Inflight wifi service']; }),
+                        type: 'histogram',
+                        name: 'satisfied',
+                        marker: { color: 'darkgreen' }
+                    };
+
+                    var dissatisfiedTrace1 = {
+                        x: dissatisfiedData.map(function (d) { return d['Inflight wifi service']; }),
+                        type: 'histogram',
+                        name: 'dissatisfied',
+                        marker: { color: 'blueblue' }
+                    };
+
+                    var satisfiedTrace2 = {
+                        x: satisfiedData.map(function (d) { return d['Class']; }),
+                        type: 'histogram',
+                        name: 'satisfied',
+                        marker: { color: 'darkgreen'}
+                    };
+
+                    var dissatisfiedTrace2 = {
+                        x: dissatisfiedData.map(function (d) { return d['Class']; }),
+                        type: 'histogram',
+                        name: 'dissatisfied',
+                        marker: { color: 'blueblue' }
+                    };
+
+                    var satisfiedTrace3 = {
+                        x: satisfiedData.map(function (d) { return d['Seat comfort']; }),
+                        type: 'histogram',
+                        name: 'satisfied',
+                        marker: { color: 'darkgreen' }
+                    };
+
+                    var dissatisfiedTrace3 = {
+                        x: dissatisfiedData.map(function (d) { return d['Seat comfort']; }),
+                        type: 'histogram',
+                        name: 'dissatisfied',
+                        marker: { color: 'blueblue' }
+                    };
+
+                    var layout1 = {
+                        title: 'Satisfaction based on Inflight wifi service rate',
+                        xaxis: { title: 'Inflight wifi service rate' },
+                        yaxis: { title: 'Count' },
+                        plot_bgcolor: '#f2f2f2',
+                        paper_bgcolor: '#f2f2f2',
+                        font: { color: '#333333' },
+                    };
+
+                    var layout2 = {
+                        title: 'Satisfaction based on Class',
+                        xaxis: { title: 'Class' },
+                        yaxis: { title: 'Count' },
+                        plot_bgcolor: '#f2f2f2',
+                        paper_bgcolor: '#f2f2f2',
+                        font: { color: '#333333' },
+                    };
+
+                    var layout3 = {
+                        title: 'Satisfaction based on Seat comfort rate',
+                        xaxis: { title: 'Seat comfort rate' },
+                        yaxis: { title: 'Count' },
+                        plot_bgcolor: '#f2f2f2',
+                        paper_bgcolor: '#f2f2f2',
+                        font: { color: '#333333' },
+                    };
+
+                    var data1 = [satisfiedTrace1, dissatisfiedTrace1];
+                    var data2 = [satisfiedTrace2, dissatisfiedTrace2];
+                    var data3 = [satisfiedTrace3, dissatisfiedTrace3];
+
+                    gsap.to('#graph1', { opacity: 0, duration: 0.3, onComplete: function () {
+                        Plotly.newPlot('graph1', data1, layout1);
+                        document.getElementById('graph1-description').textContent = 'If you pay attention, you can see that is clearly a really determining factor that the inflight wifi service is pretty good.';
+                        gsap.to('#graph1', { opacity: 1, duration: 0.3 });
+                    }});
+
+                    gsap.to('#graph2', { opacity: 0, duration: 0.3, onComplete: function () {
+                        Plotly.newPlot('graph2', data2, layout2);
+                        document.getElementById('graph2-description').textContent = 'From this plot, it can be analyzed that the business class is the best based on the satisfaction of the people.';
+                        gsap.to('#graph2', { opacity: 1, duration: 0.3 });
+                    }});
+
+                    gsap.to('#graph3', { opacity: 0, duration: 0.3, onComplete: function () {
+                        Plotly.newPlot('graph3', data3, layout3);
+                        document.getElementById('graph3-description').textContent = 'And finally, when seat comfort is rated 4 and 5 points more people is satisfied than not. This means that comfortable seat is really important.';
+                        gsap.to('#graph3', { opacity: 1, duration: 0.3 });
+                    }});
+                });
+
+            } else if (value === 'Class') {
+                d3.csv('Airline_Passengers_df.csv').then(function (data) {
+                    var fig1 = {
+                        data: [
+                            {
+                                x: data.map(row => row['Class']),
+                                y: data.map(row => row['Age']),
+                                type: 'box',
+                                marker: { color: 'orange' }
+                            }
+                        ],
+                        layout: {
+                            title: 'Age vs Class',
+                            xaxis: { title: 'Class' },
+                            yaxis: { title: 'Age' },
+                            plot_bgcolor: '#f2f2f2',
+                            paper_bgcolor: '#f2f2f2',
+                            font: { color: '#333333' }
+                           
+                        }
+                    };
+
+                    var fig2 = {
+                        data: [
+                            {
+                                x: data.map(row => row['Customer Type']),
+                                y: data.map(row => row['Age']),
+                                type: 'box',
+                                marker: { color: 'orange' }
+                            }
+                        ],
+                        layout: {
+                            title: 'Age vs Customer type',
+                            xaxis: { title: 'Customer type' },
+                            yaxis: { title: 'Age' },
+                            plot_bgcolor: '#f2f2f2',
+                            paper_bgcolor: '#f2f2f2',
+                            font: { color: '#333333' },
+                            
+                        }
+                    };
+
+                    var fig3 = {
+                        data: [
+                            {
+                                x: data.map(row => row['Leg room service']),
+                                y: data.map(row => row['Age']),
+                                type: 'box',
+                                marker: { color: 'orange' }
+                            }
+                        ],
+                        layout: {
+                            title: 'Age by Leg room service',
+                            xaxis: { title: 'Leg room service rate' },
+                            yaxis: { title: 'Age' },
+                            plot_bgcolor: '#f2f2f2',
+                            paper_bgcolor: '#f2f2f2',
+                            font: { color: '#333333' }
+                            
+                        }
+                    };
+
+                    gsap.to('#graph1', { opacity: 0, duration: 0.3, onComplete: function () {
+                        Plotly.newPlot('graph1', fig1.data, fig1.layout);
+                        document.getElementById('graph1-description').textContent = 'We can conclude that the average age is more or less the same in the three classes, and it can be assumed that regular customers mainly buy business class for themselves.';
+                        gsap.to('#graph1', { opacity: 1, duration: 0.3 });
+                    }});
+
+                    gsap.to('#graph2', { opacity: 0, duration: 0.3, onComplete: function () {
+                        Plotly.newPlot('graph2', fig2.data, fig2.layout);
+                        document.getElementById('graph2-description').textContent = 'We can see that, the mostly loyal customers are around 35 and 55 years old and for the other hand, the age range for disloyal customers is a slightly smaller(between 25 and 40 years old).';
+                        gsap.to('#graph2', { opacity: 1, duration: 0.3 });
+                    }});
+
+                    gsap.to('#graph3', { opacity: 0, duration: 0.3, onComplete: function () {
+                        Plotly.newPlot('graph3', fig3.data, fig3.layout);
+                        document.getElementById('graph3-description').textContent = 'From this graphic, nothing relevant is going on, but we can visualize that older people tends to be more critical than young people based on the 0 rating of passengers between 46 and 62 years old.';
+                        gsap.to('#graph3', { opacity: 1, duration: 0.3 });
+                    }});
+                });
+            } else if (value === 'Flight Distance') {
+                d3.csv('Airline_Passengers_df.csv').then(function (data) {
+                    var fig1 = {
+                        data: [
+                            {
+                                x: data.map(row => row['Leg room service']),
+                                y: data.map(row => row['Flight Distance']),
+                                mode: 'markers',
+                                type: 'box',
+                                marker: {
+                                    color: data.map(row => row['Leg room service']),
+                                    colorscale: 'Viridis',
+                                    showscale: true
+                                }
+                            }
+                        ],
+                        layout: {
+                            title: 'Flight Distance vs Leg Room Service',
+                            xaxis: { title: 'Leg Room Service Rate' },
+                            yaxis: { title: 'Flight Distance' },
+                            plot_bgcolor: '#f2f2f2',
+                            paper_bgcolor: '#f2f2f2',
+                            font: { color: '#333333' }
+                        }
+                    };
+
+                    var fig2 = {
+                        data: [
+                            {
+                                x: data.map(row => row['Type of Travel']),
+                                y: data.map(row => row['Flight Distance']),
+                                mode: 'markers',
+                                type: 'box',
+                                marker: {
+                                    color: data.map(row => row['Type of Travel']),
+                                    colorscale: 'Viridis',
+                                    showscale: true
+                                }
+                            }
+                        ],
+                        layout: {
+                            title: 'Flight Distance vs Type of Travel',
+                            xaxis: { title: 'Type of Travel' },
+                            yaxis: { title: 'Flight Distance' },
+                            plot_bgcolor: '#f2f2f2',
+                            paper_bgcolor: '#f2f2f2',
+                            font: { color: '#333333' }
+                        }
+                    };
+                    var fig3 = {
+                        data: [
+                            {
+                                x: data.map(row => row['Inflight entertainment']),
+                                y: data.map(row => row['Flight Distance']),
+                                mode: 'markers',
+                                type: 'box',
+                                marker: {
+                                    color: data.map(row => row['Inflight entertainment']),
+                                    colorscale: 'Virdis',
+                                    showscale: true
+                                }
+
+                            }
+                        ],
+                        layout: {
+                            title: 'Flight Distance vs Inflight entertainment',
+                            xaxis: { title: 'Inflight entertainment Rate' },
+                            yaxis: { title: 'Flight Distance' },
+                            plot_bgcolor: '#f2f2f2',
+                            paper_bgcolor: '#f2f2f2',
+                            font: { color: '#333333' }
+                        }
+                    };
+
+                    gsap.to('#graph1', { opacity: 0, duration: 0.3, onComplete: function () {
+                        Plotly.newPlot('graph1', fig1.data, fig1.layout);
+                        document.getElementById('graph1-description').textContent = 'From this graphic, it can be seen that the longer flight distance, the more people are satisfied with something like leg room service.';
+                        gsap.to('#graph1', { opacity: 1, duration: 0.3 });
+                    }});
+
+                    gsap.to('#graph2', { opacity: 0, duration: 0.3, onComplete: function () {
+                        Plotly.newPlot('graph2', fig2.data, fig2.layout);
+                        document.getElementById('graph2-description').textContent = 'Here it is clearly demonstrated that the more distance, the more likely it is to be a business trip.';
+                        gsap.to('#graph2', { opacity: 1, duration: 0.3 });
+                    }});
+
+                    gsap.to('#graph3', { opacity: 0, duration: 0.3, onComplete: function () {
+                        Plotly.newPlot('graph3', fig3.data, fig3.layout);
+                        document.getElementById('graph3-description').textContent = 'Same criteria of Flight Distance vs Leg Room Service.';
+                        gsap.to('#graph3', { opacity: 1, duration: 0.3 });
+                    }});
+                });
+            }
+        }
+        
+    </script>
+</body>
+</html>
+
+
