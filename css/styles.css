@@ -528,6 +528,7 @@
     bottom: 25px; /* Alinea el título por arriba del punto */
     left: 50%; /* Centra el título horizontalmente */
     transform: translateX(-50%);
+    font-weight:600;
   }
 
   /* Estilos para el punto interactivo sin descripción */
@@ -574,6 +575,10 @@
     opacity: 1;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4); /* Cambia la sombra al hacer hover */
     animation: fadeInImage 0.5s ease; /* Duración y efecto de la animación */
+  }
+
+  .timeline-point.active .point-title {
+    color:#69b3a2
   }
 
   @keyframes expandLine {
