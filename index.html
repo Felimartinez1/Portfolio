@@ -35,616 +35,13 @@
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <!-- Custom styles for this template -->
-    <style>
-      h2 {
-        border-bottom: 2px solid rgb(35, 160, 121);
-        color: black;
-        position: relative;
-        font-family: 'Montserrat', sans-serif;
-        font-size: 35px;
-      }
-      p {
-        font-family: 'Roboto Slab', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        color: #212529;
-        line-height: 1.75;
-      }
-
-      h2::before,
-      h2::after {
-        content: "";
-        position: absolute;
-        top: 50%; /* Ajuste de la posición vertical */
-        font-size: 1em; /* Tamaño de la fuente */
-        opacity: 0;
-        animation: moveEffect 2s infinite;
-      }
-
-      h2::before {
-        content: "<"; /* Carácter "<" antes del texto */
-        left: -20px; /* Ajuste de la posición horizontal */
-        transform: translateY(-50%);
-      }
-
-      h2::after {
-        content: ">"; /* Carácter ">" después del texto */
-        right: -20px; /* Ajuste de la posición horizontal */
-        transform: translateY(-10%);
-      }
-
-      li {
-        font-family: 'Roboto Slab', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        color: #212529;
-        line-height: 1.75;
-      }
-
-      @keyframes moveEffect {
-        0% {
-          transform: translateY(-50%);
-          opacity: 0;
-        }
-        50% {
-          opacity: 1;
-        }
-        100% {
-          transform: translateY(-50%);
-          opacity: 0;
-        }
-      }
-      
-      body {
-        background-repeat: no-repeat;
-        background-size: cover;
-        color: rgb(0, 0, 0);
-      }
-
-      .container {
-        margin-top: 50px;
-      }
-
-      .navbar.fixed-top {
-        position: fixed;
-        top: 0;
-        z-index: 9999;
-        width: 100%;
-        height: 8%;
-      }
-
-      .navbar-nav .nav-link {
-        color: rgb(37, 31, 31);
-      }
-
-      .navbar-nav .nav-link:hover {
-        color: #23a079;
-      }
-
-      .card p {
-        font-size: 15px;
-      }
-
-      .card a {
-        color: #000000; /* Cambia el color de texto de los enlaces */
-      }
-
-      .navbar-brand img {
-        max-height: 30px;
-        margin-right: 10px;
-      }
-
-      .navbar-hidden {
-        display: none;
-      }
-
-      .welcome-section {
-        height: 500px;
-        background-repeat: no-repeat;
-        background-size: cover;
-        text-align: center;
-        color: white;
-        display: flex;         /* Agrega flexbox */
-        justify-content: center; /* Centra horizontalmente */
-        align-items: center;    /* Centra verticalmente */
-        z-index: 1;
-      }
-
-      .welcome-section h1 {
-        font-size: 50px;
-        margin-bottom: 20px;
-        color:black;
-        font-family: 'Markazi Text', sans-serif;
-      }
-
-      .welcome-section p {
-        font-size: 23px;
-        margin-bottom: 30px;
-        color:black;
-        font-family: 'Markazi Text', sans-serif;
-      }
-
-      .welcome-section img {
-        max-width: 100px;
-        margin-top: 10px;
-      }
-
-      .welcome-section .col-md-6 {
-        margin: 0 auto;
-      }
-
-      .logo-container {
-        margin: 0 auto;
-        max-width: 100px;
-      }
-
-      .logo-container img {
-        max-width: 100px;
-        margin-top: 10px;
-        animation: rotate 8s infinite linear;
-      }
-
-      @keyframes rotate {
-        0% {
-          transform: rotate(0deg);
-        }
-        100% {
-          transform: rotate(360deg);
-        }
-      }
-      #particles-js {
-        position: absolute;
-        width: 100%;
-        height: 110%;
-        background-color: rgb(255, 255, 255);
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: 50% 50%;
-        overflow: hidden;
-        z-index: 0;
-        max-height: 700px;
-      }
-      
-      .backg {
-        background-color: #f8f9fa;
-      }
-
-      section {
-        padding: 100px;
-        display: block;
-        box-sizing: border-box;
-      }
-
-      .back {
-        background-color: white;
-      }
-
-      h4 {
-        font-family: 'Playball', sans-serif;
-      }
-
-      h6 {
-        font-family: 'Playball', sans-serif;
-      }
-
-      .btn {
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 500;
-      }
-
-      .btn:not(:disabled):not(.disabled) {
-        cursor: pointer;
-      }
-      
-      a {
-        text-decoration: none;
-      }
-
-      .btn-primary {
-        background-color: transparent;
-        border-color: #69b3a2;
-        color: #69b3a2;
-        border-width: medium;
-      }
-
-      .btn-xl {
-        font-size: 18px;
-        padding: 20px 40px;
-        margin: 3px;
-      }
-
-      .btn.btn-primary:hover {
-        background-color: #69b3a2; /* Turquesa */
-        border-color: #69b3a2;
-      }
-
-      .img-fluid {
-        max-width: 90%;
-        height: auto;
-      }
-
-      a {
-        color: #69b3a2
-      }
-
-      a:hover {
-        color: #10496b
-      }
-
-      footer i.bigsize {
-        font-size: 22px;
-      }
-
-      ul strong {
-        color: #69b3a2
-      }
-
-      ul.social-buttons li a {
-        font-size: 20px;
-        line-height: 40px;
-        display: block;
-        width: 40px;
-        height: 40px;
-        -webkit-transition: all 0.3s;
-        -moz-transition: all 0.3s;
-        transition: all 0.3s;
-        color: white;
-        border-radius: 100%;
-        outline: none;
-        background-color: #69b3a2;
-      }
-
-      ul.social-buttons li a:hover {
-        background-color: white;
-        color: #69b3a2;
-      }
-
-      .services-logo {
-        margin: 15px;
-        background-color: transparent;
-        border-color: #69b3a2;
-        color: #69b3a2;
-        font-size: 45px;
-        padding: 30px;
-        border-radius: 50%;
-        border-color: black;
-        border-width: 5px;
-        border: solid;
-      }
-      .services-logo:hover {
-        background-color: #69b3a2;
-        color: #ffffff; /* Turquesa */
-      }
-
-      .explanation_portfolio {
-        font-size: 13px;
-        margin: 20px;
-        color: #ffffff
-      }
-      .portfolio-item {
-        position: relative;
-        overflow: hidden;
-      }
-
-      .portfolio-item .portfolio-hover {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        -webkit-transition: all ease .7s;
-        -moz-transition: all ease .7s;
-        transition: all ease .7s;
-        opacity: 0;
-        background: #69b3a2;
-        border-radius: 1%;
-        background-color: #69b3a2 !important;
-      }
-
-      .portfolio-item:hover .portfolio-hover {
-        opacity: 0.9;
-      }
-
-      .portfolio-caption {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        padding: 15px;
-        opacity: 0.5;
-        background-color: #69b3a2;
-        text-align: center;
-        display: none; /* Hide the caption by default */
-      }
-
-      .portfolio-hover-content {
-        font-size: 22px;
-        position: absolute;
-        top: 20%;
-        width: 100%;
-        height: 20px;
-        margin-top: -12px;
-        text-align: center;
-        color: white;
-      }
-
-      .portfolio-item:hover .portfolio-caption {
-        display: block; /* Show the caption on hover */
-      }
-      
-      .portfolio-item img {
-        max-width: 100%;
-        max-height: 200%; /* Establecer la altura máxima deseada */
-        object-fit: cover; /* Para ajustar la imagen al tamaño manteniendo la proporción */
-      }
-
-      *, ::after, ::before {
-        box-sizing: border-box;
-      }
-
-      img {
-        vertical-align: middle;
-        border-style: none;
-      }
-      .show {
-        display: block;
-      }
-      
-      .portfolio-item {
-        margin: 13px;
-        margin-left: 4px;
-        margin-right: 4px;
-        position: relative;
-        overflow: hidden;
-        height: 280px; /* Set a fixed height for the portfolio images */
-        max-height: 280px;
-      }
-
-      .portfolio-image {
-        border-radius: 3px;
-        height: 280px;
-      }
-
-      .portfolio-caption .btn {
-        background-color: rgb(0, 0, 0); /* Transparent black background */
-        border-color: rgb(0, 0, 0); /* Transparent black border */
-        color: #fff; /* White font color */
-        padding: 10px 15px;
-        margin-top: 5px;
-        text-decoration: none;
-        font-size: 11px;
-      }
-
-      .portfolio-caption .btn:hover {
-        background-color: rgba(255, 255, 255, 0.7); /* Darken the background on hover */
-        color: #000000;
-        border-color: rgba(255, 255, 255, 0.7); /* Darken the border on hover */
-      }
-
-      .portfolio-filter {
-        text-align: center;
-        margin-bottom: 20px;
-      }
-
-      .filter-button {
-        padding: 10px 20px;
-        margin: 5px;
-        background-color: transparent;
-        border-color: #69b3a2;
-        color: #69b3a2;
-        cursor: pointer;
-        border: 2px solid;
-        border-radius: 0.25rem;
-        font-family: 'Montserrat', sans-serif;
-      }
-
-      .filter-button.active {
-        background-color: #69b3a2;
-        border-color: #69b3a2;
-        color: white;
-      }
-
-      .filter-button:hover {
-        background-color: #69b3a2; /* Turquesa */
-        color: white;
-        border-color: #69b3a2;
-      }
-
-      .icon-container {
-        font-size: 20px;
-        line-height: 40px;
-        display: inline-block;
-        width: 40px;
-        height: 40px;
-        -webkit-transition: all 0.3s;
-        -moz-transition: all 0.3s;
-        transition: all 0.3s;
-        color: white;
-        border-radius: 100%;
-        outline: none;
-        background-color: #69b3a2;
-      }
-
-      .icon-container:hover {
-        background-color: transparent;
-      }
-
-      .icon-container img {
-        max-width: 76%; /* Asegura que la imagen se ajuste al contenedor */
-        max-height: 76%; /* Asegura que la imagen se ajuste al contenedor */
-        margin-bottom: 3px;
-      }
-
-      .img-tableau {
-        filter: brightness(0) invert(1);
-      }
-
-      .img-tableau:hover {
-        filter: brightness(1) hue-rotate(0);
-        background-color: transparent;
-      }
-
-      #arrow-upa {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        width: 40px;
-        height: 40px;
-        background-color: #69b3a2;
-        color: white;
-        text-align: center;
-        line-height: 40px;
-        border-radius: 50%;
-        cursor: pointer;
-        font-size: 34px;
-        display: none;
-        -webkit-transition: all 0.3s;
-        -moz-transition: all 0.3s;
-        transition: all 0.3s;
-        border-color: #69b3a2;
-      }
-
-      #arrow-upa:hover {
-        background-color: transparent;
-        color: #69b3a2;
-      }
-
-      /* Estilos para la línea de tiempo */
-      .timeline {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 150px 0;
-        position: relative;
-        margin-bottom: 50px;
-      }
-
-      /* Estilos para la línea trazada */
-      .timeline::before {
-        content: "";
-        position: absolute;
-        width: 100%;
-        height: 2px;
-        background-color: #69b3a2;
-        top: 50%;
-        left: 0;
-        z-index: 0;
-      }
-
-      /* Estilos para los puntos interactivos */
-      .timeline-point {
-        position: relative;
-        width: 20px;
-        height: 20px;
-        background-color: #69b3a2;
-        border-radius: 50%;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-        position: relative;
-        z-index: 1;
-        transform: translateX(-50%);
-      }
-
-      .timeline-point .timeline-year {
-        font-size: 14px;
-        text-align: center;
-        color: #000;
-        margin-top: 5px;
-      }
-
-      .timeline-point.active {
-        background-color: #23a079;
-      }
-
-      /* Estilos para el título debajo de cada punto */
-      .point-title {
-        font-size: 13px;
-        font-family: 'Montserrat', sans-serif;
-        text-align: center;
-        margin-bottom: 5px;
-        color: #000;
-        position: absolute;
-        bottom: 25px; /* Alinea el título por arriba del punto */
-        left: 50%; /* Centra el título horizontalmente */
-        transform: translateX(-50%);
-      }
-
-      /* Estilos para el punto interactivo sin descripción */
-      .timeline-point .point-content {
-        position: relative;
-        background-color: #69b3a2;
-        border-radius: 50%;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-        position: relative; /* Para ajustar la posición en la línea */
-        z-index: 1; /* Coloca los puntos sobre la línea */
-        transform: translateX(-50%); /* Centra los puntos en la línea */
-      }
-
-      @keyframes fadeInImage {
-        0% {
-          opacity: 0;
-        }
-        100% {
-          opacity: 1;
-        }
-      }
-
-      .timeline-point .certificate-image {
-        display: none;
-        max-width: 220px; /* Ajusta el tamaño de la imagen */
-        height: 180px;
-        position: absolute;
-        top: 50px; /* Alinea la imagen por debajo del punto */
-        left: 50%; /* Centra la imagen horizontalmente */
-        transform: translateX(-50%);
-        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); /* Agrega una sombra para la profundidad */
-        transition: all 0.3s ease; /* Agregamos transición para suavizar el cambio de tamaño */
-      }
-
-      /* Estilos para la imagen al final de la línea vertical */
-      .timeline-point.active .certificate-image {
-        display: block;
-        max-width: 210px; /* Tamaño más grande al hacer hover */
-        height: 180px;
-        top: 100px; /* Alinea la imagen al final de la línea vertical */
-        left: 80%; /* Centra la imagen horizontalmente */
-        transform: translateX(-50%);
-        opacity: 1;
-        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4); /* Cambia la sombra al hacer hover */
-        animation: fadeInImage 0.5s ease; /* Duración y efecto de la animación */
-      }
-
-      @keyframes expandLine {
-        0% {
-          height: 0;
-        }
-        100% {
-          height: 70px; /* Ajusta la altura deseada */
-        }
-      }
-
-      /* Estilos para la línea vertical descendente */
-      .timeline-point.active::before {
-        content: "";
-        position: absolute;
-        width: 2px;
-        height: 70px;
-        background-color: #69b3a2;
-        top: 100%; /* Coloca la línea debajo del punto */
-        left: 50%; /* Centra la línea horizontalmente */
-        transform: translateX(-50%);
-        opacity: 0;
-        animation: expandLine 0.5s ease; /* Duración y efecto de la animación */
-      }
-
-      .timeline-point.active::before {
-        display: block;
-        opacity: 1;
-      }
-
-    </style>
-    
+    <link href="/css/styles.css" rel="stylesheet">
   </head>
 
   <body>
     <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top" style="font-family: Montserrat, sans-serif; font-size: 18px;">
           <img src="Images/db.png" alt="Logo">HOME
         </a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
@@ -932,7 +329,7 @@
           <div class="col-lg-3 text-center">
             <a data-toggle="modal" href="#contact"><i class="fa fa-search services-logo"></i></a>
             <a data-toggle="modal" href="#contact">
-              <h4 style="font-family: 'Roboto Slab', 'Helvetica Neue', Helvetica, Arial, sans-serif;">Data Mining</h4>
+              <h4 style="font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;">Data Mining</h4>
             </a>
             <p>Data exploration, application of statistical methods, reproducible data analysis.</p>
           </div>
@@ -941,7 +338,7 @@
           <div class="col-lg-3 text-center">
             <a data-toggle="modal" href="#contact"><i class="fa fa-wrench services-logo"></i></a>
             <a data-toggle="modal" href="#contact">
-              <h4 style="font-family: 'Roboto Slab', 'Helvetica Neue', Helvetica, Arial, sans-serif;">Data Management</h4>
+              <h4 style="font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;">Data Management</h4>
             </a>
             <p>Data harvesting, cleaning and reshaping. Development of automated workflows.</p>
           </div>
@@ -950,7 +347,7 @@
           <div class="col-lg-3 text-center">
             <a data-toggle="modal" href="#contact"><i class="fa fa-bar-chart services-logo"></i></a>
             <a data-toggle="modal" href="#contact">
-              <h4 style="font-family: 'Roboto Slab', 'Helvetica Neue', Helvetica, Arial, sans-serif;">Data Visualization</h4>
+              <h4 style="font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;">Data Visualization</h4>
             </a>
             <p>Creation of static and interactive data viz and dashboards with Tableau and Power BI.</p>
           </div>
@@ -959,7 +356,7 @@
           <div class="col-lg-3 text-center">
             <a href="#contact"><i class="fa fa-brain services-logo"></i></a>
             <a href="#contact">
-              <h4 style="font-family: 'Roboto Slab', 'Helvetica Neue', Helvetica, Arial, sans-serif;">Deep Learning</h4>
+              <h4 style="font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;">Deep Learning</h4>
             </a>
             <p>Implementation of Deep and Machine Learning models. Computer vision, NLP, Reinforcement Learning.</p>
           </div>
@@ -972,7 +369,7 @@
           <div class="col-lg-4 text-center">
             <a href="#contact"><i class="fab fa-python services-logo"></i></a>
             <a href="#contact">
-              <h4 style="font-family: 'Roboto Slab', 'Helvetica Neue', Helvetica, Arial, sans-serif;">Python Developer</h4>
+              <h4 style="font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;">Python Developer</h4>
             </a>
             <p>Essential libraries like pandas, numpy, seaborn and more. Trained to work with OOP.</p>
           </div>
@@ -981,7 +378,7 @@
           <div class="col-lg-4 text-center">
             <a href="#contact"><i class="fa fa-database services-logo"></i></a>
             <a href="#contact">
-              <h4 style="font-family: 'Roboto Slab', 'Helvetica Neue', Helvetica, Arial, sans-serif;">Databases</h4>
+              <h4 style="font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;">Databases</h4>
             </a>
             <p>Able to work and manage both SQL and NoSQL databases such as MySQL, PostgreSQL, Microsoft SQL Server, MongoDB, Cassandra.</p>
           </div>
@@ -990,7 +387,7 @@
           <div class="col-lg-4 text-center">
             <a href="#contact"><i class="fa fa-cloud services-logo"></i></a>
             <a href="#contact">
-              <h4 style="font-family: 'Roboto Slab', 'Helvetica Neue', Helvetica, Arial, sans-serif;">Cloud</h4>
+              <h4 style="font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;">Cloud</h4>
             </a>
             <p>Good cloud management in AWS Cloud in workflow tools such as SageMaker, Amazon S3 and Redshift.</p>
           </div>
