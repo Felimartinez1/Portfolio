@@ -74,10 +74,15 @@
   .navbar-nav .nav-link {
     color: rgb(37, 31, 31);
     font-family: 'Montserrat', 'sans-serif';
+    letter-spacing: 1px;
+    display: inline;
   }
 
   .navbar-nav .nav-link:hover {
-    color: #23a079;
+    color: #69b3a2;
+    border-bottom: 3px solid #69b3a2;
+    padding-bottom: 16px; /* Ajusta este valor según tu preferencia */
+    transition: 0s;
   }
 
   .card p {
