@@ -613,3 +613,14 @@
     display: block;
     opacity: 1;
   }
+
+  .arrowlanding {
+    color: black;
+    position: absolute;
+    top: 580px;
+    right: 50%;
+    transform: translate(50%, -50%);
+    max-width: 600px;
+    padding: 2em 3em;
+  }
+  
