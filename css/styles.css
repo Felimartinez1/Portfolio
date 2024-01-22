@@ -63,6 +63,27 @@
     margin-top: 50px;
   }
 
+  #about-me .container {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #about-me {
+    margin-top: 200px;
+    height: 80vh;
+    max-height: 800px;
+    min-height: 780px;
+  }
+
+  /* Media query para pantallas más pequeñas (responsive) */
+  @media only screen and (max-width: 768px) {
+    #about-me {
+      min-height: 1600px; /* Ajusta este valor según tus necesidades */
+    }
+  }
+
+
   .navbar.fixed-top {
     position: fixed;
     top: 0;
