@@ -92,6 +92,13 @@
     transition: top 0.3s; /* Add a smooth transition effect */
   }
 
+  .navbar-brand:hover {
+    color: #69b3a2;
+    border-bottom: 3px solid #69b3a2;
+    padding-bottom: 16px;
+    transition: 0s;
+  }
+
   .navbar-nav .nav-link {
     color: rgb(37, 31, 31);
     font-family: 'Montserrat', 'sans-serif';
@@ -105,6 +112,12 @@
     border-bottom: 3px solid #69b3a2;
     padding-bottom: 16px;
     transition: 0s;
+  }
+
+  #mainNav.navbar-shrink {
+    padding-top: 0; /* Ajusta el valor según tus necesidades */
+    padding-bottom: 0; /* Ajusta el valor según tus necesidades */
+    background-color: white;
   }
 
   .card p {
