@@ -83,6 +83,10 @@
     }
   }
 
+  #mainNav.navbar-hidden {
+    display: none;
+  }
+
   .navbar.fixed-top {
     position: fixed;
     top: 0;
@@ -120,18 +124,42 @@
     transition: 0s;
   }
 
-  #mainNav.navbar-shrink {
-    padding-top: 0; /* Ajusta el valor según tus necesidades */
-    padding-bottom: 0; /* Ajusta el valor según tus necesidades */
-    background-color: white;
+  .navbar-nav .nav-link.active,
+  .nav-link.active:hover {
+      color: #69b3a2;
+      border-bottom: 3px solid #69b3a2;
+      padding-bottom: 16px;
   }
 
-  .card p {
-    font-size: 15px;
+  @keyframes slideDown {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(0);
+    }
   }
-
-  .card a {
-    color: #000000; /* Cambia el color de texto de los enlaces */
+  
+  @keyframes slideUp {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-100%);
+    }
+  }
+  
+  .navbar {
+    animation-duration: 0.5s;
+    animation-timing-function: ease;
+  }
+  
+  .navbar.slide-down {
+    animation-name: slideDown;
+  }
+  
+  .navbar.slide-up {
+    animation-name: slideUp;
   }
 
   .navbar-brand img {
@@ -139,8 +167,19 @@
     margin-right: 10px;
   }
 
-  .navbar-hidden {
-    display: none;
+  #mainNav.navbar-shrink {
+    padding-top: 0; /* Ajusta el valor según tus necesidades */
+    padding-bottom: 0; /* Ajusta el valor según tus necesidades */
+    background-color: white;
+    display: inline;
+  }
+  
+  .card p {
+    font-size: 15px;
+  }
+
+  .card a {
+    color: #000000; /* Cambia el color de texto de los enlaces */
   }
 
   .welcome-section {
@@ -237,6 +276,12 @@
     font-weight: 500;
   }
 
+  .btn-check:active+.btn, .btn-check:checked+.btn, .btn.active, .btn.show, .btn:active {
+    background-color: transparent;
+    border-color: #69b3a2;
+    color: #69b3a2;
+  }
+
   .btn:not(:disabled):not(.disabled) {
     cursor: pointer;
   }
@@ -261,6 +306,7 @@
   .btn.btn-primary:hover {
     background-color: #69b3a2; /* Turquesa */
     border-color: #69b3a2;
+    color: white;
   }
 
   .img-fluid {
