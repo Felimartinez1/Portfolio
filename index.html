@@ -613,7 +613,7 @@
 
           if (currentScroll <= 0) {
             // Si se hace scroll hacia arriba del todo
-            $('#mainNav').removeClass('navbar-shrink');
+            $('#mainNav').removeClass('navbar-shrink navbar-hidden');
             isEffectActivated = false;
           } else if (currentScroll < previousScroll) {
             // Si se hace scroll hacia arriba pero no está en la parte superior
@@ -644,7 +644,7 @@
           if (currentScroll <= 0) {
             $('#mainNav').removeClass('slide-up');
           } else if (currentScroll > previousScroll) {
-            $('#mainNav').removeClass('slide-down').addClass('slide-up');
+            $('#mainNav').removeClass('slide-down');// .addClass('slide-up')
           } else {
             $('#mainNav').removeClass('slide-up').addClass('slide-down');
           }
