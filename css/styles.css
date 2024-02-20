@@ -450,6 +450,7 @@
     overflow: hidden;
     height: 280px; /* Set a fixed height for the portfolio images */
     max-height: 280px;
+    box-shadow: 2px 8px 13px rgba(0, 0, 0, 0.2);
   }
 
   .portfolio-image {
