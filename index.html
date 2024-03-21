@@ -35,7 +35,7 @@
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <!-- Custom styles for this template -->
-    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/styles.css" rel="stylesheet">
   </head>
 
   <body>
@@ -208,10 +208,22 @@
             </div>
           </div>
 
+          <!-- Modal for Messi Project Video -->
+          <div id="messiVideoModal" class="modal">
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <div class="video-container">
+                <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7157807581002883073?compact=1" height="399" width="710" frameborder="0" allowfullscreen="" title="Publicación integrada"></iframe>
+              </div>
+            </div>
+          </div>
+
+
+
           <!-- Project: Messi Stats -->
           <div class="col-md-3 text-center">
             <div class="portfolio-item dataviz data-mining all">
-              <a class="portfolio-link" href="https://public.tableau.com/app/profile/felipe.mart.nez2887/viz/TheMessiProject/MessiProject?publish=yes">
+              <a id="messiProject" class="portfolio-link" href="#">
                 <div class="portfolio-hover">
                   <div class="portfolio-hover-content">
                     <h5>The Messi Project</h5>
@@ -226,6 +238,7 @@
               </div>
             </div>
           </div>
+
 
           <!-- Project: Age of Empires II Data Visualization -->
           <div class="col-md-3 text-center">
@@ -713,6 +726,41 @@
         });
       });
     </script>
+    <script>
+      // Get the modal
+      var modal = document.getElementById("messiVideoModal");
+    
+      // Get the <span> element that closes the modal
+      var span = document.getElementsByClassName("close")[0];
+    
+      // When the user clicks on Messi project image, open the modal
+      // When the user clicks on Messi project image, open the modal
+      document.getElementById("messiProject").addEventListener("click", function(event) {
+        event.preventDefault();
+        modal.classList.add("show"); // Agregamos la clase show al modal
+        modalContent.classList.add("show"); // Agregamos la clase show al contenido del modal
+        document.body.style.overflow = "hidden";
+      });
+
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function() {
+        modal.classList.remove("show"); // Quitamos la clase show al modal
+        modalContent.classList.remove("show"); // Quitamos la clase show al contenido del modal
+        document.body.style.overflow = "auto";
+      };
+
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.classList.remove("show"); // Quitamos la clase show al modal
+          modalContent.classList.remove("show"); // Quitamos la clase show al contenido del modal
+          document.body.style.overflow = "auto";
+        }
+      };
+
+    </script>
+    
+    
     <script>
       document.addEventListener("DOMContentLoaded", function () {
           const arrowUpa = document.getElementById("arrow-upa");
