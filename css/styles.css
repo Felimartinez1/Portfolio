@@ -760,15 +760,15 @@
   }
 
   .close {
-    color: #aaa;
+    color: #69b3a2;
     float: right;
-    font-size: 28px;
+    font-size: 42px;
     font-weight: bold;
   }
 
   .close:hover,
   .close:focus {
-    color: black;
+    color: #3d655c;
     text-decoration: none;
     cursor: pointer;
   }
