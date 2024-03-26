@@ -35,7 +35,7 @@
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <!-- Custom styles for this template -->
-    <link href="/css/styles.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
   </head>
 
   <body>
@@ -210,7 +210,6 @@
 
 
           <!-- Project: Messi Stats -->
-          
           <!-- Modal for Messi Project Video -->
           <div id="messiVideoModal" class="modal">
             <div class="modal-content">
@@ -238,22 +237,31 @@
             </div>
           </div>
 
+          <!-- Project: Ecommerce Sales Overview -->
+          <!-- Modal for Ecommerce Sales Overview -->
+          <div id="ecommerceModal" class="modal">
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <div class="video-container">
+                <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7178386278147604481?compact=1" height="399" width="710" frameborder="0" allowfullscreen="" title="Publicación integrada"></iframe>
+              </div>
+            </div>
+          </div>
 
-          <!-- Project: Age of Empires II Data Visualization -->
           <div class="col-md-3 text-center">
             <div class="portfolio-item dataviz data-mining all">
-              <a class="portfolio-link" href="https://public.tableau.com/app/profile/felipe.mart.nez2887/viz/AgeofEmpires2Dashboard/Dashboard3">
+              <a id="ecommerceOverview" class="portfolio-link" href="#">
                 <div class="portfolio-hover">
                   <div class="portfolio-hover-content">
-                    <h5>Age of Empires II</h5>
-                    <p class="explanation_portfolio">Data Analysis and Visualization project of around 85,000 Age of Empires 1v1 games. Tableau for viz.</p>
+                    <h5>Ecommerce Sales Overview</h5>
+                    <p class="explanation_portfolio">Dashboard in Tableau to visualize sales data of electronic products from an ecommerce platform.</p>
                   </div>
                 </div>
-                <img class="portfolio-image" src="Images/Captura de pantalla 2023-08-31 144027.png" alt="Age of Empires II Data Visualization">
+                <img class="portfolio-image" src="Images/Dashboard.png" alt="Ecommerce Sales Overview">
               </a>
               <div class="portfolio-caption">
-                <a href="https://github.com/Felimartinez1/Age-of-Empires" target="_blank" class="btn btn-outline-dark btn-sm"><i class="fab fa-github mr-1"></i> GitHub</a>
-                <a href="https://public.tableau.com/app/profile/felipe.mart.nez2887/viz/AgeofEmpires2Dashboard/Dashboard3" target="_blank" class="btn btn-outline-dark btn-sm"><i class="fas fa-chart-bar mr-1"></i> Tableau</a>
+                <a href="https://github.com/Felimartinez1/sales-electronic-products" target="_blank" class="btn btn-outline-dark btn-sm"><i class="fab fa-github mr-1"></i> GitHub</a>
+                <a href="https://public.tableau.com/app/profile/felipe.mart.nez2887/viz/SalesElectronicProducts/Dashboard1" target="_blank" class="btn btn-outline-dark btn-sm"><i class="fas fa-chart-bar mr-1"></i> Dashboard</a>
               </div>
             </div>
           </div>
@@ -315,20 +323,21 @@
             </div>
           </div>
 
-          <!-- Project: Web Scraping Bovada -->
+          <!-- Project: Age of Empires II Data Visualization -->
           <div class="col-md-3 text-center">
-            <div class="portfolio-item web-scraping freelance all">
-              <a class="portfolio-link" href="https://github.com/Felimartinez1/Web-Scraping-Bovada">
+            <div class="portfolio-item dataviz data-mining all">
+              <a class="portfolio-link" href="https://public.tableau.com/app/profile/felipe.mart.nez2887/viz/AgeofEmpires2Dashboard/Dashboard3">
                 <div class="portfolio-hover">
                   <div class="portfolio-hover-content">
-                    <h5>Bovada Sportsbook</h5>
-                    <p class="explanation_portfolio">Freelance work. Baseball sports betting data extraction. I have used Selenium. It takes data and puts it into a spreadsheet.</p>
+                    <h5>Age of Empires II</h5>
+                    <p class="explanation_portfolio">Data Analysis and Visualization project of around 85,000 Age of Empires 1v1 games. Tableau for viz.</p>
                   </div>
                 </div>
-                <img class="portfolio-image" src="Images/baseball.jpg" alt="Web Scraping">
+                <img class="portfolio-image" src="Images/Captura de pantalla 2023-08-31 144027.png" alt="Age of Empires II Data Visualization">
               </a>
               <div class="portfolio-caption">
-                <a href="https://github.com/Felimartinez1/Web-Scraping-Bovada" target="_blank" class="btn btn-outline-dark btn-sm"><i class="fab fa-github mr-1"></i> GitHub</a>
+                <a href="https://github.com/Felimartinez1/Age-of-Empires" target="_blank" class="btn btn-outline-dark btn-sm"><i class="fab fa-github mr-1"></i> GitHub</a>
+                <a href="https://public.tableau.com/app/profile/felipe.mart.nez2887/viz/AgeofEmpires2Dashboard/Dashboard3" target="_blank" class="btn btn-outline-dark btn-sm"><i class="fas fa-chart-bar mr-1"></i> Tableau</a>
               </div>
             </div>
           </div>
@@ -727,6 +736,35 @@
     </script>
     <script>
       // Get the modal
+      var ecommerceModal = document.getElementById("ecommerceModal");
+
+      // Get the <span> element that closes the modal
+      var ecommerceModalClose = document.getElementsByClassName("close")[1];
+
+      // When the user clicks on Ecommerce Sales Overview project image, open the modal
+      document.getElementById("ecommerceOverview").addEventListener("click", function(event) {
+        event.preventDefault();
+        ecommerceModal.classList.add("show");
+        document.body.style.overflow = "hidden"; // Disable scrolling on the body when modal is open
+      });
+
+      // When the user clicks on <span> (x), close the modal
+      ecommerceModalClose.onclick = function() {
+        ecommerceModal.classList.remove("show");
+        document.body.style.overflow = "auto"; // Enable scrolling on the body when modal is closed
+      };
+
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) {
+        if (event.target == ecommerceModal) {
+          ecommerceModal.classList.remove("show");
+          document.body.style.overflow = "auto"; // Enable scrolling on the body when modal is closed
+        }
+      };
+
+    </script>
+    <script>
+      // Get the modal
       var modal = document.getElementById("messiVideoModal");
     
       // Get the <span> element that closes the modal
@@ -756,7 +794,6 @@
           document.body.style.overflow = "auto";
         }
       };
-
     </script>
     
     
