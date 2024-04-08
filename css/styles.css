@@ -110,6 +110,10 @@
     display: inline;
   }
 
+  hr {
+    opacity: .45;
+  }
+
   /* Ajusta el margen superior de los elementos de la lista cuando la barra de navegación está reducida */
   #mainNav.navbar-shrink .nav-item-adjust {
     margin-top: -50px; /* Ajusta el valor según tus necesidades */
