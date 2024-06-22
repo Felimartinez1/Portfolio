@@ -19,7 +19,6 @@
     <link rel="icon" href="Images/db.png">
 
     <!-- Bootstrap core CSS -->
-    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/animate.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web&display=swap">
@@ -31,9 +30,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Hlevetica Neue&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid Serif&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto Slab&display=swap">
-    <script src="https://kit.fontawesome.com/cb60b7aba6.js" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <!-- Custom styles for this template -->
     <link href="/css/styles.css" rel="stylesheet">
   </head>
@@ -97,7 +93,7 @@
             </div>
             <br>
             <div class="col-md-12">
-              <a id="analyticsButton" class="animate__animated btn btn-primary btn-xl" href="#">WHY DATA?</a>
+              <a id="analyticsButton" class="animate__animated btn btn-primary btn-xl" data-target="analyticsVideoModal">WHY DATA?</a>
               <a href="#portfolio" class="animate__animated btn btn-primary btn-xl">MY WORK</a>
             </div>
             <div class="col-md-12">
@@ -127,14 +123,15 @@
         <div class="row">
           <div class="col-lg-4">
             <img class="img-fluid" src="Images/feli4.jpeg" alt="Profil picture"
-              style="margin-bottom: 30px; width: 90%; border-radius: 50%; margin-left: -20px; box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);">
+              style="margin-bottom: 30px; width: 90%; border-radius: 50%;
+               margin-left: -20px; box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);">
               <div class="col-md-8">
                 <h4>Felipe Martínez</h4>
                 <h6>Data Scientist</h6>
               </div>
           </div>
           <div class="col-lg-8 text-md-left text-align">
-            <p>Hello, I'm Felipe, a self-taught <strong>data scientist</strong> from Argentina currently working as an <strong>AI developer</strong> for <a href='https://dreamjunkstudios.com/' target="_blank"><strong>Dream Junk Studios</strong></a>. Also as a <strong>freelancer</strong>, I've helped clients decipher their data puzzles, extracted information from diverse sources, and facilitated knowledge visualization.</p>
+            <p>Self-taught <strong>data scientist</strong> from Argentina currently working for <a href='https://dreamjunkstudios.com/' target="_blank"><strong>Dream Junk Studios</strong></a>. Also as a <strong>freelancer</strong>, I've helped clients decipher their data puzzles, extracted information from diverse sources, and facilitated knowledge visualization.</p>
             <p>My job consists in helping companies and researchers to analyse, visualize and find insights in their datasets. Proficient in most data-science steps: <strong>data mining</strong>, application of <strong>statistical methods</strong> and <strong>neural networks</strong>, data <strong>visualization</strong> and results <strong>communication</strong>.</p>
             <p>Quick learner, language enthusiast, and disciplined in all I do. Join me on this data journey!</p>
             <div class="col-md-12 text-center" style="line-height: 4;">
@@ -526,364 +523,26 @@
         </div>
       </div>
     </footer>
-
-    <!-- Bootstrap core JavaScript -->
+    <!-- Core js -->
+    <script src="https://kit.fontawesome.com/cb60b7aba6.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-      window.onscroll = function() {myFunction()};
-      
-      var navbar = document.getElementById("navbarNav");
-      
-      var sticky = navbar.offsetTop;
-      
-      function myFunction() {
-        if (window.pageYOffset >= sticky) {
-          navbar.classList.add("sticky")
-        } else {
-          navbar.classList.remove("sticky");
-        }
-      }
-    </script>
-    <script>
-      ScrollReveal().reveal('.row', { delay: 200 });
-      ScrollReveal().reveal('.container', { delay: 200 });
-      ScrollReveal().reveal('.card', { delay: 200 });
-    </script>
-    <script>
-      window.addEventListener('scroll', function() {
-        var navbar = document.querySelector('.navbar');
-        if (window.pageYOffset > 100) {
-          navbar.classList.add('navbar-hidden');
-        } else {
-          navbar.classList.remove('navbar-hidden');
-        }
-      });
-    </script>
-    <script>
-      window.sr = ScrollReveal();
-      sr.reveal('.animate__animated', {
-        duration: 2000,
-        origin: 'bottom',
-        distance: '50px',
-      });
-    </script>
-    <script>
-      particlesJS("particles-js", {
-        particles: {
-          number: { value: 80, density: { enable: true, value_area: 800 } },
-          color: { value: "#808080" },
-          shape: {
-            type: "circle",
-            stroke: { width: 0, color: "#000000" },
-            polygon: { nb_sides: 5 },
-            image: { src: "img/github.svg", width: 100, height: 100 }
-          },
-          opacity: {
-            value: 0.5,
-            random: false,
-            anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false }
-          },
-          size: {
-            value: 4.5,
-            random: true,
-            anim: { enable: false, speed: 40, size_min: 0.1, sync: false }
-          },
-          line_linked: {
-            enable: true,
-            distance: 150,
-            color: "#808080",
-            opacity: 0.4,
-            width: 1
-          },
-          move: {
-            enable: true,
-            speed: 3,
-            direction: "none",
-            random: false,
-            straight: false,
-            out_mode: "out",
-            bounce: false,
-            attract: { enable: false, rotateX: 600, rotateY: 1200 }
-          }
-        },
-        interactivity: {
-          detect_on: "canvas",
-          events: {
-            onhover: { enable: true, mode: "repulse" },
-            onclick: { enable: true, mode: "push" },
-            resize: true
-          },
-          modes: {
-            grab: { distance: 400, line_linked: { opacity: 1 } },
-            bubble: { distance: 400, size: 50, duration: 2, opacity: 8, speed: 3 },
-            repulse: { distance: 200, duration: 0.4 },
-            push: { particles_nb: 4 },
-            remove: { particles_nb: 2 }
-          }
-        },
-        retina_detect: true
-      });
-    </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-      $(document).ready(function() {
-        // Configuración de ScrollReveal
-        ScrollReveal().reveal('#mainNav', {
-          duration: 800,
-          origin: 'top',
-          distance: '50px',
-          easing: 'ease-in-out',
-          mobile: true
-        });
-
-        var previousScroll = 0;
-        var isScrollingUp = false;
-        var isEffectActivated = false;
-
-        $(window).scroll(function() {
-          var currentScroll = $(this).scrollTop();
-
-          if (currentScroll <= 0) {
-            // Si se hace scroll hacia arriba del todo
-            $('#mainNav').removeClass('navbar-shrink navbar-hidden');
-            isEffectActivated = false;
-          } else if (currentScroll < previousScroll) {
-            // Si se hace scroll hacia arriba pero no está en la parte superior
-            if (!isScrollingUp && !isEffectActivated) {
-              $('#mainNav').removeClass('navbar-hidden').addClass('navbar-shrink');
-              isEffectActivated = true;
-            }
-            isScrollingUp = true;
-          } else {
-            // Si se hace scroll hacia abajo
-            $('#mainNav').removeClass('navbar-shrink');
-            isEffectActivated = false;
-            isScrollingUp = false;
-          }
-
-          previousScroll = currentScroll;
-        });
-      });
-
-    </script>
-    <script>
-      $(document).ready(function() {
-        var previousScroll = 0;
-
-        $(window).scroll(function() {
-          var currentScroll = $(this).scrollTop();
-
-          if (currentScroll <= 0) {
-            $('#mainNav').removeClass('slide-up');
-          } else if (currentScroll > previousScroll) {
-            $('#mainNav').removeClass('slide-down');// .addClass('slide-up');
-          } else {
-            $('#mainNav').removeClass('slide-up').addClass('slide-down');
-          }
-
-          previousScroll = currentScroll;
-        });
-      });
-    </script>
-    <script>
-      $(document).ready(function() {
-        $('.nav-link').on('click', function() {
-            $('.nav-link').removeClass('active'); // Elimina la clase activa de todos los enlaces
-            $(this).addClass('active'); // Agrega la clase activa al enlace clicado
-        });
-      });
-    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
-    <script>
-      $(document).ready(function() {
-        // Selecciona todas las secciones que quieres tener en la barra de navegación
-        var sections = $('section');
-        
-        // Agrega un waypoint para cada sección
-        sections.waypoint({
-            handler: function(direction) {
-                // Obtén el ID de la sección visible
-                var activeSection = $(this.element).attr('id');
-                
-                // Remueve la clase activa de todos los enlaces de navegación
-                $('.nav-link').removeClass('active');
-                
-                // Agrega la clase activa al enlace correspondiente a la sección visible
-                $('a[href="#' + activeSection + '"]').addClass('active');
-            },
-            offset: '0' // Cambia esto según tu diseño para ajustar cuándo se activa el cambio de sección
-        });
-      });
-    </script>
-    <script>
-      $(function () {
-        $(document).scroll(function () {
-          var $nav = $(".navbar");
-          $nav.toggleClass("navbar-hidden", $(this).scrollTop() > $nav.height());
-        });
-      });
-    </script>
-    <script>
-      $(document).ready(function () {
-        $(".filter-button").click(function () {
-          var value = $(this).attr("data-filter");
-      
-          if (value == "all") {
-            $(".portfolio-item").show("1000");
-          } else {
-            $(".portfolio-item")
-              .not("." + value)
-              .hide("3000");
-            $(".portfolio-item")
-              .filter("." + value)
-              .show("3000");
-          }
-      
-          // Cambiar la clase activa
-          $(".filter-button").removeClass("active");
-          $(this).addClass("active");
-        });
-      });
-    </script>
-
-    <script>
-      // Get the modals
-      var analyticsModal = document.getElementById("analyticsVideoModal");
-      var ecommerceModal = document.getElementById("ecommerceModal");
-      var messiModal = document.getElementById("messiVideoModal");
-
-      // Get the close buttons
-      var closeButtons = document.getElementsByClassName("close");
-
-      // When the user clicks on "WHY ANALYTICS?" button, open the analytics modal
-      document.getElementById("analyticsButton").addEventListener("click", function(event) {
-        event.preventDefault();
-        analyticsModal.style.display = "block";
-        document.body.style.overflow = "hidden";
-      });
-
-      // When the user clicks on Ecommerce Sales Overview project image, open the ecommerce modal
-      document.getElementById("ecommerceOverview").addEventListener("click", function(event) {
-        event.preventDefault();
-        ecommerceModal.classList.add("show");
-        document.body.style.overflow = "hidden"; // Disable scrolling on the body when modal is open
-      });
-
-      // When the user clicks on Messi project image, open the messi modal
-      document.getElementById("messiProject").addEventListener("click", function(event) {
-        event.preventDefault();
-        messiModal.classList.add("show");
-        document.body.style.overflow = "hidden";
-      });
-
-      // Function to close modals
-      function closeModal() {
-        analyticsModal.style.display = "none";
-        ecommerceModal.classList.remove("show");
-        messiModal.classList.remove("show");
-        document.body.style.overflow = "auto"; // Enable scrolling on the body when modal is closed
-        
-        // Reload iframe content to stop video playback
-        var iframes = document.querySelectorAll("iframe");
-        iframes.forEach(function(iframe) {
-          iframe.src = iframe.src;
-        });
-      }
-
-      // Assign close modal function to close buttons
-      for (var i = 0; i < closeButtons.length; i++) {
-        closeButtons[i].addEventListener("click", closeModal);
-      }
-
-      // When the user clicks anywhere outside of the modals, close them
-      window.onclick = function(event) {
-        if (event.target == analyticsModal || event.target == ecommerceModal || event.target == messiModal) {
-          closeModal();
-        }
-      };
-    </script>
-
-        
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-          const arrowUpa = document.getElementById("arrow-upa");
-          window.addEventListener("scroll", () => {
-              if (window.pageYOffset > 100) {
-                  arrowUpa.style.display = "block";
-              } else {
-                  arrowUpa.style.display = "none";
-              }
-          });
-
-          arrowUpa.addEventListener("click", () => {
-              window.scrollTo({
-                  top: 0,
-                  behavior: "smooth"
-              });
-          });
-      });
-    </script>
-    <script>
-      // Datos de educación con título, año, descripción y URL de imagen opcional
-      const educationData = [
-        {
-          title: "Statistics Course",
-          imageUrl: "Images/Statistics.png"
-        },
-        {
-          title: "Data Science Professional Certificate",
-          imageUrl: "Images/DataScienceProfesional.png"
-        },
-        {
-          title: "Data Visualization with Tableau Specialization",
-          imageUrl: "Images/viz.png"
-        },
-        {
-          title: "Machine Learning Specialization",
-          imageUrl: "Images/MachineLearning2.png"
-        },
-        {
-          title: "Deep Learning Specialization",
-          imageUrl: "Images/deeplearningspecialization.png"
-        },
-        {
-          title: "Practical Data Science on AWS Cloud Specialization",
-          imageUrl: "Images/AWS.png"
-        },
-      ];
-
-      // Obtén el elemento de la línea de tiempo
-      const educationTimeline = document.getElementById("education-timeline");
-
-      // Función para crear un punto interactivo sin el año
-      function createInteractivePoint(education) {
-        const interactivePoint = document.createElement("div");
-        interactivePoint.className = "timeline-point";
-        interactivePoint.innerHTML = `
-          <div class="point-content">
-            <img src="${education.imageUrl}" alt="${education.title}" class="certificate-image">
-          </div>
-          <div class="point-title">${education.title}</div>
-        `;
-
-        // Agregar evento de hover para mostrar la imagen y la línea vertical
-        interactivePoint.addEventListener("mouseover", () => {
-          interactivePoint.classList.add("active");
-        });
-
-        interactivePoint.addEventListener("mouseout", () => {
-          interactivePoint.classList.remove("active");
-        });
-
-        return interactivePoint;
-      }
-
-      // Genera y agrega los puntos interactivos a la línea de tiempo
-      educationData.forEach((education) => {
-        educationTimeline.appendChild(createInteractivePoint(education));
-      });
-    </script>
+    <!-- Custom js  -->
+    <script src="portfolio_scripts/navbar/navbar.js"></script>
+    <script src="portfolio_scripts/navbar/navbarLinkActivate.js"></script>
+    <script src="portfolio_scripts/navbar/navbarSlide.js"></script>
+    <script src="portfolio_scripts/navbar/navbarToggle.js"></script>
+    <script src="portfolio_scripts/navbar/waypointsConfig.js"></script>
+    <script src="portfolio_scripts/scroll/scrollReveal.js"></script>
+    <script src="portfolio_scripts/scroll/scrollRevealConfig.js"></script>
+    <script src="portfolio_scripts/scroll/scrollTop.js"></script>
+    <script src="portfolio_scripts/particles/particles.js"></script>
+    <script src="portfolio_scripts/modal/modals.js"></script>
+    <script src="portfolio_scripts/education/showCertificates.js"></script>
+    <script src="portfolio_scripts/portfolio/filterPortfolio.js"></script>
   </body>
 </html>
 
