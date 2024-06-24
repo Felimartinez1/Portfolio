@@ -4,27 +4,33 @@ document.addEventListener("DOMContentLoaded", function() {
   const educationData = [
     {
       title: "Statistics Course",
-      imageUrl: "Images/Statistics.png"
+      imageUrl: "Images/Statistics.png",
+      modalID: "statisticsModal"
     },
     {
       title: "Data Science Professional Certificate",
-      imageUrl: "Images/DataScienceProfesional.png"
+      imageUrl: "Images/DataScienceProfesional.png",
+      modalID: "dataScienceModal"
     },
     {
       title: "Data Visualization with Tableau Specialization",
-      imageUrl: "Images/viz.png"
+      imageUrl: "Images/viz.png",
+      modalID: "dataVisualizationModal"
     },
     {
       title: "Machine Learning Specialization",
-      imageUrl: "Images/MachineLearning2.png"
+      imageUrl: "Images/MachineLearning2.png",
+      modalID: "machineLearningModal"
     },
     {
       title: "Deep Learning Specialization",
-      imageUrl: "Images/deeplearningspecialization.png"
+      imageUrl: "Images/deeplearningspecialization.png",
+      modalID: "deepLearningModal"
     },
     {
       title: "Practical Data Science on AWS Cloud Specialization",
-      imageUrl: "Images/AWS.png"
+      imageUrl: "Images/AWS.png",
+      modalID: "awsModal"
     },
   ];
 
@@ -52,6 +58,14 @@ document.addEventListener("DOMContentLoaded", function() {
         interactivePoint.classList.remove("active");
       });
 
+      interactivePoint.addEventListener("click", () => {
+        const modal = document.getElementById(education.modalID);
+        if (modal) {
+          modal.style.display = "block";
+          document.body.style.overflow = "hidden";
+        }
+      });
+
       return interactivePoint;
     }
 
@@ -62,4 +76,26 @@ document.addEventListener("DOMContentLoaded", function() {
   } else {
     console.error("Element with ID 'education-timeline' not found.");
   }
+
+  // Cerrar el modal
+  const modals = document.querySelectorAll(".modal-education");
+  modals.forEach(modal => {
+    const closeButton = modal.querySelector(".close-education");
+    if (closeButton) {
+      closeButton.addEventListener("click", () => {
+        modal.style.display = "none";
+        document.body.style.overflow = "auto";
+      });
+    }
+  });
+
+  // Cerrar el modal al hacer clic fuera del contenido del modal
+  window.addEventListener("click", (event) => {
+    modals.forEach(modal => {
+      if (event.target == modal) {
+        modal.style.display = "none";
+        document.body.style.overflow = "auto";
+      }
+    });
+  });
 });
