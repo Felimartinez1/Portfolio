@@ -843,6 +843,17 @@
     height: 100%;
   }
 
+  .highlight-tag {
+    display: inline-block;
+    background-color: #3d655c;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    margin-right: 10px;  /* Espacio entre los tags horizontales */
+    margin-bottom: 10px; /* Espacio entre las filas de tags */
+  }
 
+  
 
   
