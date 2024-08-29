@@ -31,7 +31,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid Serif&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto Slab&display=swap">
     <!-- Custom styles for this template -->
-    <link href="/css/styles.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
   </head>
 
   <body>
@@ -195,31 +195,40 @@
         </div>
         <div class="portfolio-filter">
           <button class="filter-button active" data-filter="all">Show All</button>
-          <button class="filter-button" data-filter="freelance">Freelance</button>
           <button class="filter-button" data-filter="data-mining">Data Mining</button>
           <button class="filter-button" data-filter="dataviz">DataViz</button>
           <button class="filter-button" data-filter="machine-learning">Machine Learning</button>
-          <button class="filter-button" data-filter="web-scraping">Web Scraping</button>
         </div>    
         <div class="row">
-
-          <!-- Project: Voice Cloning -->
-          <div class="col-md-3 text-center">
-            <div class="portfolio-item machine-learning all">
-              <a class="portfolio-link" href="https://github.com/Felimartinez1/Voice-Cloning">
-                <div class="portfolio-hover">
-                  <div class="portfolio-hover-content">
-                    <h5>Voice Cloning</h5>
-                    <p class="explanation_portfolio">Implemented voice cloning using a Bark-based model. Deployed on AWS.</p>
-                  </div>
-                </div>
-                <img class="portfolio-image" src="Images/Voicecloningportfolio2.jpg" alt="Voice Cloning">
-              </a>
-              <div class="portfolio-caption">
-                <a href="https://github.com/Felimartinez1/Voice-Cloning" target="_blank" class="btn btn-outline-dark btn-sm"><i class="fab fa-github mr-1"></i> GitHub</a>
+          
+          <!-- Modal for Phonemix -->
+          <!-- Phonemix Project in Portfolio -->
+          <div id="phonemixModal" class="modal">
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <div class="video-container">
+                <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7234596150236897281?compact=1" height="399" width="710" frameborder="0" allowfullscreen="" title="Phonemix Video"></iframe>
               </div>
             </div>
           </div>
+          <div class="col-md-4 text-center">
+            <div class="portfolio-item machine-learning all">
+              <a id="phonemixProject" class="portfolio-link" href="#">
+                <div class="portfolio-hover">
+                  <div class="portfolio-hover-content">
+                    <h5>Phonemix</h5>
+                    <p class="explanation_portfolio">Application that uses artificial intelligence to help you improve your pronunciation in different languages.</p>
+                  </div>
+                </div>
+                <img class="portfolio-image" src="Images/Voicecloningportfolio2.jpg" alt="Phonemix">
+              </a>
+              <div class="portfolio-caption">
+                <a href="https://github.com/B4nitezDev/Phonemix/" target="_blank" class="btn btn-outline-dark btn-sm"><i class="fab fa-github mr-1"></i> GitHub</a>
+                <a href="https://phonemix.up.railway.app/" target="_blank" class="btn btn-outline-dark btn-sm"><i class="fas fa-chart-bar mr-1"></i> App</a>
+              </div>
+            </div>
+          </div>
+
 
           <!-- Project: Messi Stats -->
           <!-- Modal for Messi Project Video -->
@@ -231,7 +240,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-3 text-center">
+          <div class="col-md-4 text-center">
             <div class="portfolio-item dataviz data-mining all">
               <a id="messiProject" class="portfolio-link" href="#">
                 <div class="portfolio-hover">
@@ -259,7 +268,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-3 text-center">
+          <div class="col-md-4 text-center">
             <div class="portfolio-item dataviz data-mining all">
               <a id="ecommerceOverview" class="portfolio-link" href="#">
                 <div class="portfolio-hover">
@@ -276,9 +285,11 @@
               </div>
             </div>
           </div>
+        </div>
 
+        <div class="row">
           <!-- Project: Age & Gender Estimation -->
-          <div class="col-md-3 text-center">
+          <div class="col-md-4 text-center">
             <div class="portfolio-item machine-learning all">
               <a class="portfolio-link" href="https://github.com/Felimartinez1/Age-Gender-Computer-Vision">
                 <div class="portfolio-hover">
@@ -294,48 +305,8 @@
               </div>
             </div>
           </div>
-        </div>
-        <div class="row">
-
-          <!-- Project: Neural Style Transfer -->
-          <div class="col-md-3 text-center">
-            <div class="portfolio-item machine-learning all">
-              <a class="portfolio-link" href="https://neuralstyledash.online/">
-                <div class="portfolio-hover">
-                  <div class="portfolio-hover-content">
-                    <h5>Neural Style Transfer</h5>
-                    <p class="explanation_portfolio">CNN that takes an image and style input and generates a new artistic image.</p>
-                  </div>
-                </div>
-                <img class="portfolio-image" src="Images/S_image6.jpg" alt="Neural Style Transfer">
-              </a>
-              <div class="portfolio-caption">
-                <a href="https://github.com/Felimartinez1/Neural-Style-Transfer" target="_blank" class="btn btn-outline-dark btn-sm"><i class="fab fa-github mr-1"></i> GitHub</a>
-                <a href="https://neuralstyledash.online/" target="_blank" class="btn btn-outline-dark btn-sm"><i class="fas fa-chart-bar mr-1"></i> Dashboard</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Project: Miami Housing -->
-          <div class="col-md-3 text-center">
-            <div class="portfolio-item dataviz data-mining freelance all">
-              <a class="portfolio-link" href="https://public.tableau.com/app/profile/felipe.mart.nez2887/viz/Miami-Houses/MiamiHousing">
-                <div class="portfolio-hover">
-                  <div class="portfolio-hover-content">
-                    <h5>Miami Housing</h5>
-                    <p class="explanation_portfolio">Freelance work. Housing prices in Miami. Correlations to identify patterns for the determination of house prices.</p>
-                  </div>
-                </div>
-                <img class="portfolio-image" src="Images/Captura de pantalla 2023-09-01 120738.png" alt="Miami Housing">
-              </a>
-              <div class="portfolio-caption">
-                <a href="https://public.tableau.com/app/profile/felipe.mart.nez2887/viz/Miami-Houses/MiamiHousing" target="_blank" class="btn btn-outline-dark btn-sm"><i class="fas fa-chart-bar mr-1"></i> Dashboard</a>
-              </div>
-            </div>
-          </div>
-
           <!-- Project: Age of Empires II Data Visualization -->
-          <div class="col-md-3 text-center">
+          <div class="col-md-4 text-center">
             <div class="portfolio-item dataviz data-mining all">
               <a class="portfolio-link" href="https://public.tableau.com/app/profile/felipe.mart.nez2887/viz/AgeofEmpires2Dashboard/Dashboard3">
                 <div class="portfolio-hover">
@@ -352,21 +323,20 @@
               </div>
             </div>
           </div>
-
-          <!-- Project: New Haven -->
-          <div class="col-md-3 text-center">
-            <div class="portfolio-item web-scraping freelance all">
-              <a class="portfolio-link" href="https://github.com/Felimartinez1/Scraping-GIS-New-Haven-data">
+          <!-- Project: Miami Housing -->
+          <div class="col-md-4 text-center">
+            <div class="portfolio-item dataviz data-mining all">
+              <a class="portfolio-link" href="https://public.tableau.com/app/profile/felipe.mart.nez2887/viz/Miami-Houses/MiamiHousing">
                 <div class="portfolio-hover">
                   <div class="portfolio-hover-content">
-                    <h5>New Haven City</h5>
-                    <p class="explanation_portfolio">Freelance work. Involves Web Scraping GIS data from New Haven to gather property information and then exporting it to an Excel file.</p>
+                    <h5>Miami Housing</h5>
+                    <p class="explanation_portfolio">Freelance work. Housing prices in Miami. Correlations to identify patterns for the determination of house prices.</p>
                   </div>
                 </div>
-                <img class="portfolio-image" src="Images/new-haven.png" alt="New Haven">
+                <img class="portfolio-image" src="Images/Captura de pantalla 2023-09-01 120738.png" alt="Miami Housing">
               </a>
               <div class="portfolio-caption">
-                <a href="https://github.com/Felimartinez1/Scraping-GIS-New-Haven-data" target="_blank" class="btn btn-outline-dark btn-sm"><i class="fab fa-github mr-1"></i> GitHub</a>
+                <a href="https://public.tableau.com/app/profile/felipe.mart.nez2887/viz/Miami-Houses/MiamiHousing" target="_blank" class="btn btn-outline-dark btn-sm"><i class="fas fa-chart-bar mr-1"></i> Dashboard</a>
               </div>
             </div>
           </div>

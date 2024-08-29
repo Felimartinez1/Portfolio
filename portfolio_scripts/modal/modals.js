@@ -1,8 +1,8 @@
-// modals.js
 document.addEventListener("DOMContentLoaded", function() {
   var analyticsModal = document.getElementById("analyticsVideoModal");
   var ecommerceModal = document.getElementById("ecommerceModal");
   var messiModal = document.getElementById("messiVideoModal");
+  var phonemixModal = document.getElementById("phonemixModal");
 
   var closeButtons = document.getElementsByClassName("close");
 
@@ -33,6 +33,15 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 
+  var phonemixProject = document.getElementById("phonemixProject");
+  if (phonemixProject) {
+    phonemixProject.addEventListener("click", function(event) {
+      event.preventDefault();
+      phonemixModal.classList.add("show");
+      document.body.style.overflow = "hidden";
+    });
+  }
+
   function closeModal() {
     if (analyticsModal) {
       analyticsModal.style.display = "none";
@@ -42,6 +51,9 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     if (messiModal) {
       messiModal.classList.remove("show");
+    }
+    if (phonemixModal) {
+      phonemixModal.classList.remove("show");
     }
     document.body.style.overflow = "auto";
     
@@ -56,9 +68,8 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   window.onclick = function(event) {
-    if (event.target == analyticsModal || event.target == ecommerceModal || event.target == messiModal) {
+    if (event.target == analyticsModal || event.target == ecommerceModal || event.target == messiModal || event.target == phonemixModal) {
       closeModal();
     }
   };
 });
-
