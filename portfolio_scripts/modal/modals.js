@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", function() {
-  var analyticsModal = document.getElementById("analyticsVideoModal");
-  var ecommerceModal = document.getElementById("ecommerceModal");
-  var messiModal = document.getElementById("messiVideoModal");
-  var phonemixModal = document.getElementById("phonemixModal");
+  const analyticsModal = document.getElementById("analyticsVideoModal");
+  const ecommerceModal = document.getElementById("ecommerceModal");
+  const messiModal = document.getElementById("messiVideoModal");
+  const phonemixModal = document.getElementById("phonemixModal");
 
-  var closeButtons = document.getElementsByClassName("close");
+  const closeButtons = document.getElementsByClassName("close");
 
-  var analyticsButton = document.getElementById("analyticsButton");
+  const analyticsButton = document.getElementById("analyticsButton");
   if (analyticsButton) {
     analyticsButton.addEventListener("click", function(event) {
       event.preventDefault();
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 
-  var ecommerceOverview = document.getElementById("ecommerceOverview");
+  const ecommerceOverview = document.getElementById("ecommerceOverview");
   if (ecommerceOverview) {
     ecommerceOverview.addEventListener("click", function(event) {
       event.preventDefault();
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 
-  var messiProject = document.getElementById("messiProject");
+  const messiProject = document.getElementById("messiProject");
   if (messiProject) {
     messiProject.addEventListener("click", function(event) {
       event.preventDefault();
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 
-  var phonemixProject = document.getElementById("phonemixProject");
+  const phonemixProject = document.getElementById("phonemixProject");
   if (phonemixProject) {
     phonemixProject.addEventListener("click", function(event) {
       event.preventDefault();
@@ -57,13 +57,13 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     document.body.style.overflow = "auto";
     
-    var iframes = document.querySelectorAll("iframe");
+    const iframes = document.querySelectorAll("iframe");
     iframes.forEach(function(iframe) {
       iframe.src = iframe.src;
     });
   }
 
-  for (var i = 0; i < closeButtons.length; i++) {
+  for (let i = 0; i < closeButtons.length; i++) {
     closeButtons[i].addEventListener("click", closeModal);
   }
 
