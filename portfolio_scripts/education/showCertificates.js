@@ -32,6 +32,11 @@ document.addEventListener("DOMContentLoaded", function() {
       imageUrl: "Images/AWS.png",
       modalID: "awsModal"
     },
+    {
+      title: "Rust for LLMOps Course",
+      imageUrl: "Images/LLMOPS.png",
+      modalID: "llmopsModal"
+    },
   ];
 
   // Obtén el elemento de la línea de tiempo
