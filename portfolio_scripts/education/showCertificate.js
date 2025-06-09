@@ -37,6 +37,11 @@ document.addEventListener("DOMContentLoaded", function() {
       imageUrl: "Images/LLMOPS.png",
       modalID: "llmopsModal"
     },
+    {
+      title: "Containerized Applications on AWS Course",
+      imageUrl: "Images/Containerized Applications on AWS.png",
+      modalID: "awsContainerizationModal"
+    },    
   ];
 
   // Obtén el elemento de la línea de tiempo
