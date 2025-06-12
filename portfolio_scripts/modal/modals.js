@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", function() {
   const ecommerceModal = document.getElementById("ecommerceModal");
   const messiModal = document.getElementById("messiVideoModal");
   const phonemixModal = document.getElementById("phonemixModal");
+  const apartmentsCABAModal = document.getElementById("apartmentsCABAModal");
+
 
   const closeButtons = document.getElementsByClassName("close");
 
@@ -42,6 +44,15 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 
+  const apartmentsCABAProject = document.getElementById("apartmentsCABAProject");
+  if (apartmentsCABAProject) {
+    apartmentsCABAProject.addEventListener("click", function(event) {
+      event.preventDefault();
+      apartmentsCABAModal.classList.add("show");
+      document.body.style.overflow = "hidden";
+    });
+  }
+
   function closeModal() {
     if (analyticsModal) {
       analyticsModal.style.display = "none";
@@ -54,6 +65,9 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     if (phonemixModal) {
       phonemixModal.classList.remove("show");
+    }
+    if (apartmentsCABAModal) {
+      apartmentsCABAModal.classList.remove("show");
     }
     document.body.style.overflow = "auto";
     
@@ -68,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   window.onclick = function(event) {
-    if (event.target == analyticsModal || event.target == ecommerceModal || event.target == messiModal || event.target == phonemixModal) {
+    if (event.target == analyticsModal || event.target == ecommerceModal || event.target == messiModal || event.target == phonemixModal || event.target == apartmentsCABAModal) {
       closeModal();
     }
   };
