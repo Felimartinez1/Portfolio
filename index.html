@@ -36,8 +36,8 @@
 <body>
   <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
     <div class="container">
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
-        data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
         aria-label="Toggle navigation">
         Menu
         <i class="fa fa-bars"></i>
@@ -123,44 +123,16 @@
   <section id="about-me" class="backg">
     <div class="container">
       <div class="row">
-        <div class="col-lg-4">
-          <div class="profile-pic-wrapper">
+        <div class="col-lg-4 text-center">
+          <div class="profile-pic-wrapper mx-auto mb-4">
             <img class="profile-pic img-fluid" src="Images/FelipePresentation.jpeg" alt="Profile picture">
           </div>
-          <div class="col-md-8">
-            <h4 style="font-size: 28px;">Felipe Martínez</h4>
-            <h6 style="font-size: 18px;">Data Scientist</h6>
-          </div>
-        </div>
-        <div class="col-lg-8 text-md-left text-align">
-          <p>Passionate about helping businesses <strong>make sense of their data</strong>. Whether that means
-            uncovering insights through analytics or building AI solutions that turn data into action.</p>
-          <p>Currently working at <a href='https://solvoglobal.com' target="_blank"><strong>Solvo Global</strong></a> as
-            a <strong>Senior Data Scientist</strong> and creating my <strong>personal project</strong> <a
-              href='https://inteliprop.com' target="_blank"><strong>InteliProp</strong></a>.
-            Previously worked with clients as a <strong>consultant</strong> to build and integrate AI models and extract
-            insights from diverse sources. I also collaborated on <a href='https://cux.ai/'
-              target="_blank"><strong>CUX</strong></a> and <a
-              href='https://www.linkedin.com/company/dream-junk-studios/posts/?feedView=all'
-              target="_blank"><strong>Dream Junk Studios</strong></a> as a <strong>Data Scientist</strong>.</p>
-          <p>My goal is to <strong>make data a real driver of decisions</strong> (data analytics),
-            <strong>efficiency</strong> (data engineering), and <strong>innovation</strong> (AI).
-          </p>
-          <div class="col-md-12 text-center" style="line-height: 4;">
-            <div class="row" id="experience-section">
-              <div class="col-lg-12">
-                <!-- Timeline container -->
-                <div class="timeline-container">
-                  <div id="timeline-line"></div>
-                  <div id="timeline-nodes">
-                    <!-- Nodes will be injected here by JS -->
-                  </div>
-                </div>
+          <div>
+            <h4 style="font-size: 28px; font-weight: 700; font-family: 'Montserrat', sans-serif;">Felipe Martínez</h4>
+            <h6 style="font-size: 18px; color: #69b3a2; font-family: 'Roboto Slab', serif; margin-bottom: 20px;">Data
+              Scientist</h6>
 
-                <!-- Detail View Removed for Modal -->
-              </div>
-            </div>
-            <ul class="list-inline social-buttons">
+            <ul class="list-inline social-buttons d-flex align-items-center justify-content-center">
               <li class="list-inline-item social-buttons">
                 <a href="https://twitter.com/felimarttinez" target="_blank">
                   <i class="fa fa-twitter bigsize"></i>
@@ -176,12 +148,42 @@
                   <i class="fa fa-linkedin bigsize"></i>
                 </a>
               </li>
-              <li class="icon-container">
-                <a href="https://public.tableau.com/app/profile/felipe.mart.nez2887" target="_blank">
-                  <img src="Images/icons8-tableau-software.svg" alt="Tableau Icon" class="img-tableau">
+              <li class="list-inline-item social-buttons">
+                <a href="https://public.tableau.com/app/profile/felipe.mart.nez2887" target="_blank"
+                  style="vertical-align: middle;">
+                  <img src="Images/icons8-tableau-software.svg" alt="Tableau Icon" class="img-tableau"
+                    style="width: 25px; height: 25px; vertical-align: middle; margin-bottom: 3px;">
                 </a>
               </li>
             </ul>
+          </div>
+        </div>
+        <div class="col-lg-8 text-md-left text-align mt-4 mt-lg-0">
+          <p>Passionate about helping businesses <strong>make sense of their data</strong>. Whether that means
+            uncovering insights through analytics or building AI solutions that turn data into action.</p>
+          <p>Currently working as a <strong>Data &amp; AI Engineer</strong> at <a href='https://www.lebane.app/'
+              target="_blank"><strong>Lebane</strong></a>.
+            Previously, I worked as a <strong>Data Scientist</strong> at <a href='https://teknedatalabs.com/'
+              target="_blank"><strong>Tekne</strong></a> and as a <strong>Data Scientist &amp; ML Engineer</strong> for
+            <a href='https://solvoglobal.com' target="_blank"><strong>Solvo Global</strong></a>. I have also
+            collaborated with <a href='https://cux.ai/' target="_blank"><strong>CUX</strong></a> and <a
+              href='https://www.linkedin.com/company/dream-junk-studios/posts/?feedView=all'
+              target="_blank"><strong>Dream Junk Studios</strong></a> building intelligent systems, and have extensive
+            experience working with clients as an independent <strong>consultant</strong>.</p>
+          <p>My goal is to <strong>make data a real driver of decisions</strong> (data analytics),
+            <strong>efficiency</strong> (data engineering), and <strong>innovation</strong> (AI).
+          </p>
+          <div class="col-md-12 text-center" style="line-height: 4;">
+            <div class="row" id="experience-section">
+              <div class="col-lg-12">
+                <!-- Timeline container -->
+                <div id="gantt-chart">
+                  <!-- Gantt chart will be injected here by JS -->
+                </div>
+
+                <!-- Detail View Removed for Modal -->
+              </div>
+            </div>
           </div>
         </div>
       </div>
