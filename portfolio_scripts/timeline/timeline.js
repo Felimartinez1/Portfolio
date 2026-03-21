@@ -123,11 +123,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const minDate = allDates.reduce((a, b) => a < b ? a : b);
   const maxDate = allDates.reduce((a, b) => a > b ? a : b);
 
-  // Pad to Jan of start year and Mar of year after end for clean axis
+  // Pad to Jan of start year and Dec of end year for balanced axis
   const startYear = parseInt(minDate.split("-")[0]);
   const endYear = parseInt(maxDate.split("-")[0]);
   const globalStart = startYear + "-01";
-  const globalEnd = (endYear + 1) + "-03";
+  const globalEnd = endYear + "-12";
   const totalMonths = monthDiff(globalStart, globalEnd);
 
   // Build the Gantt
