@@ -1,7 +1,7 @@
 import re
 import os
 
-css_path = os.path.join("css", "style2.css")
+css_path = os.path.join("css", "style.css")
 
 with open(css_path, "r", encoding="utf-8") as f:
     css = f.read()
