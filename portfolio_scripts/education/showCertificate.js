@@ -41,7 +41,12 @@ document.addEventListener("DOMContentLoaded", function() {
       title: "Containerized Applications on AWS Course",
       imageUrl: "Images/Containerized Applications on AWS.png",
       modalID: "awsContainerizationModal"
-    },    
+    },
+    {
+      title: "Machine Learning in Production",
+      imageUrl: "Images/machinelearning-production.png",
+      modalID: "mlProductionModal"
+    },
   ];
 
   // Obtén el elemento de la línea de tiempo
