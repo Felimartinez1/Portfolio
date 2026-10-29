@@ -28,6 +28,8 @@ Then open http://localhost:8080.
 
 ### Common updates
 
+- **Changed any CSS or JS?** Bump the `?v=` value on the `<link>` and `<script>` tags in `index.html` (e.g. `?v=20261029` → today's date). The host tells browsers to cache these files for 7 days, so without a new URL returning visitors keep the old version.
+
 - **New job:** add an entry to `experienceData`. The Gantt chart, its colors and the "About" stats (years, roles, countries) update on their own.
 - **New certificate:** add an optimized image to `Images/certificates/` and an entry to `certificatesData`. Issuer logos live in `Images/logos/` and are registered in `issuerLogos` (each with a display height tuned so all wordmarks look the same size).
 - **New project:** copy a `project-col` block in `index.html`. Add `data-video="<LinkedIn embed URL>"` to the image button to open a demo in the video modal.
