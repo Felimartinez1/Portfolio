@@ -1,7 +1,11 @@
 document.addEventListener("DOMContentLoaded", function() {
+  if (typeof particlesJS === "undefined") return;
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const isSmallScreen = window.innerWidth < 768;
+
   particlesJS("particles-js", {
     particles: {
-      number: { value: 80, density: { enable: true, value_area: 800 } },
+      number: { value: isSmallScreen ? 40 : 80, density: { enable: true, value_area: 800 } },
       color: { value: "#808080" },
       shape: {
         type: "circle",
@@ -27,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function() {
         width: 1
       },
       move: {
-        enable: true,
+        enable: !reduceMotion,
         speed: 3,
         direction: "none",
         random: false,

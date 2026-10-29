@@ -1,19 +1,11 @@
-// scrollTop.js
-document.addEventListener("DOMContentLoaded", function () {
-    const arrowUpa = document.getElementById("arrow-upa");
-    window.addEventListener("scroll", () => {
-      if (window.pageYOffset > 100) {
-        arrowUpa.style.display = "block";
-      } else {
-        arrowUpa.style.display = "none";
-      }
-    });
-  
-    arrowUpa.addEventListener("click", () => {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
-    });
-  });
-  
+// "Back to top" button, shown after scrolling past the hero
+document.addEventListener("DOMContentLoaded", () => {
+  const button = document.getElementById("scroll-top");
+  if (!button) return;
+
+  const update = () => button.classList.toggle("visible", window.scrollY > 600);
+  window.addEventListener("scroll", update, { passive: true });
+  update();
+
+  button.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+});

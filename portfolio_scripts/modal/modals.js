@@ -1,115 +1,101 @@
-document.addEventListener("DOMContentLoaded", function() {
-    // Get modal elements
-    const analyticsModal = document.getElementById("analyticsVideoModal");
-    // REMOVED: const ecommerceModal = document.getElementById("ecommerceModal");
-    const messiModal = document.getElementById("messiVideoModal");
-    const phonemixModal = document.getElementById("phonemixModal");
-    const apartmentsCABAModal = document.getElementById("apartmentsCABAModal");
-    const personalFinanceModal = document.getElementById("personalFinanceModal");
+// Shared modal helper used by the experience, video and certificate modals.
+// Closes on the × button, on a click outside the box, or with Escape, and gives focus back to the trigger.
+const Modal = (() => {
+  let lastTrigger = null;
 
-    // Get all close buttons
-    const closeButtons = document.getElementsByClassName("close");
+  function open(modal, trigger) {
+    lastTrigger = trigger || document.activeElement;
+    modal.classList.add("show");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    const closeButton = modal.querySelector(".modal-close");
+    if (closeButton) closeButton.focus({ preventScroll: true });
+    modal.dispatchEvent(new CustomEvent("modal:open"));
+  }
 
-    // --- Get trigger elements ---
+  function close(modal) {
+    if (!modal.classList.contains("show")) return;
+    modal.classList.remove("show");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+    modal.dispatchEvent(new CustomEvent("modal:close"));
+    if (lastTrigger && typeof lastTrigger.focus === "function") lastTrigger.focus({ preventScroll: true });
+  }
 
-    // Analytics (if it exists)
-    const analyticsButton = document.getElementById("analyticsButton");
-    if (analyticsButton) {
-        analyticsButton.addEventListener("click", function(event) {
-            event.preventDefault();
-            analyticsModal.style.display = "block";
-            document.body.style.overflow = "hidden";
-        });
+  document.addEventListener("click", (event) => {
+    if (event.target.classList.contains("site-modal")) {
+      close(event.target);
+      return;
     }
+    const closeButton = event.target.closest(".modal-close");
+    if (closeButton) close(closeButton.closest(".site-modal"));
+  });
 
-    // REMOVED: E-commerce trigger logic
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") document.querySelectorAll(".site-modal.show").forEach(close);
+  });
 
-    // Messi
-    const messiProject = document.getElementById("messiProject");
-    if (messiProject) {
-        messiProject.addEventListener("click", function(event) {
-            event.preventDefault();
-            messiModal.classList.add("show");
-            document.body.style.overflow = "hidden";
-        });
+  return { open, close };
+})();
+
+// Video modal. Two kinds of triggers:
+//  - data-video: a LinkedIn embed URL, loaded in an iframe only when opened
+//  - data-video-file: a video hosted with the site, played in a native player
+// Either way the media is unloaded on close to stop playback.
+document.addEventListener("DOMContentLoaded", () => {
+  const videoModal = document.getElementById("videoModal");
+  if (!videoModal) return;
+  const box = videoModal.querySelector(".video-box");
+  const frame = videoModal.querySelector("iframe");
+  const player = videoModal.querySelector("video");
+  const fallback = videoModal.querySelector(".video-fallback");
+
+  function openEmbed(trigger) {
+    player.hidden = true;
+    frame.hidden = false;
+    frame.src = trigger.dataset.video;
+    // Same post outside the embed, for when the iframe is blocked (local file, privacy extensions)
+    if (fallback) {
+      fallback.href = trigger.dataset.video.replace("/embed/feed/update/", "/feed/update/").split("?")[0];
+      fallback.firstChild.textContent = "Video not loading? Open it on LinkedIn ";
     }
-    
-    // Phonemix
-    const phonemixProject = document.getElementById("phonemixProject");
-    if (phonemixProject) {
-        phonemixProject.addEventListener("click", function(event) {
-            event.preventDefault();
-            phonemixModal.classList.add("show");
-            document.body.style.overflow = "hidden";
-        });
+  }
+
+  function openFile(trigger) {
+    frame.hidden = true;
+    player.hidden = false;
+    player.src = trigger.dataset.videoFile;
+    player.currentTime = 0;
+    player.play().catch(() => {});
+    if (fallback) {
+      fallback.hidden = !trigger.dataset.videoPost;
+      fallback.href = trigger.dataset.videoPost || "#";
+      fallback.firstChild.textContent = "See the post on LinkedIn ";
     }
+  }
 
-    // Apartments CABA
-    const apartmentsCABAProject = document.getElementById("apartmentsCABAProject");
-    if (apartmentsCABAProject) {
-        apartmentsCABAProject.addEventListener("click", function(event) {
-            event.preventDefault();
-            apartmentsCABAModal.classList.add("show");
-            document.body.style.overflow = "hidden";
-        });
-    }
+  document.querySelectorAll("[data-video], [data-video-file]").forEach((trigger) => {
+    trigger.addEventListener("click", (event) => {
+      event.preventDefault();
+      if (fallback) fallback.hidden = false;
+      if (trigger.dataset.videoFile) {
+        openFile(trigger);
+      } else {
+        openEmbed(trigger);
+      }
+      const title = trigger.dataset.videoTitle || "Project video";
+      frame.title = title;
+      videoModal.setAttribute("aria-label", title);
+      box.style.setProperty("--video-ratio", trigger.dataset.videoRatio || "16 / 9");
+      box.classList.toggle("is-narrow", trigger.hasAttribute("data-video-narrow"));
+      Modal.open(videoModal, trigger);
+    });
+  });
 
-    // Personal Finance listeners
-    const personalFinanceProject = document.getElementById("personalFinanceProject");
-    const personalFinanceDashboardButton = document.getElementById("personalFinanceDashboardButton"); 
-
-    function openPersonalFinanceModal(event) {
-        event.preventDefault();
-        if (personalFinanceModal) {
-            personalFinanceModal.classList.add("show");
-            document.body.style.overflow = "hidden";
-        }
-    }
-
-    if (personalFinanceProject) {
-        personalFinanceProject.addEventListener("click", openPersonalFinanceModal);
-    }
-    if (personalFinanceDashboardButton) {
-        personalFinanceDashboardButton.addEventListener("click", openPersonalFinanceModal);
-    }
-
-    // Function to close any active modal
-    function closeModal() {
-        if (analyticsModal) {
-            analyticsModal.style.display = "none";
-        }
-        // REMOVED: ecommerceModal check
-        if (messiModal) {
-            messiModal.classList.remove("show");
-        }
-        if (phonemixModal) {
-            phonemixModal.classList.remove("show");
-        }
-        if (apartmentsCABAModal) {
-            apartmentsCABAModal.classList.remove("show");
-        }
-        if (personalFinanceModal) {
-            personalFinanceModal.classList.remove("show");
-        }
-
-        document.body.style.overflow = "auto";
-        
-        const iframes = document.querySelectorAll("iframe");
-        iframes.forEach(function(iframe) {
-            iframe.src = iframe.src;
-        });
-    }
-
-    // Attach close event to all close buttons
-    for (let i = 0; i < closeButtons.length; i++) {
-        closeButtons[i].addEventListener("click", closeModal);
-    }
-
-    // Close modal when clicking outside of it
-    window.onclick = function(event) {
-        // REMOVED: ecommerceModal check from the condition
-        if (event.target == analyticsModal || event.target == messiModal || event.target == phonemixModal || event.target == apartmentsCABAModal || event.target == personalFinanceModal) {
-            closeModal();
-        }
-    };
+  videoModal.addEventListener("modal:close", () => {
+    frame.src = "about:blank";
+    player.pause();
+    player.removeAttribute("src");
+    player.load();
+  });
 });

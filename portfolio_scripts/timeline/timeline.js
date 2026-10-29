@@ -7,8 +7,11 @@ const experienceData = [
     date: "June, 2023 - October, 2025",
     startDate: "2023-06",
     endDate: "2025-10",
-    description: "Built web scrapers for the Bovada baseball betting platform and New Haven real estate data, where I preprocessed the extracted data and built dashboards to help inform betting strategies and property market analysis. <br> Also implemented an AI-powered intelligent chatbot fully integrated into Odoo ERP.",
-    skills: ["Python", "SQL", "Odoo", "Web Scraping", "Power BI", "Tableau", "Docker", "GIT", "NLP", "Embeddings", "APIs"],
+    highlights: [
+      "Built web scrapers for the Bovada baseball betting platform and New Haven real estate data, where I preprocessed the extracted data and built dashboards to help inform betting strategies and property market analysis.",
+      "Implemented an AI-powered intelligent chatbot fully integrated into Odoo ERP."
+    ],
+    skills: ["Python", "SQL", "Odoo", "Web Scraping", "Power BI", "Tableau", "Docker", "Git", "NLP", "Embeddings", "APIs"],
     link: null
   },
   {
@@ -19,8 +22,13 @@ const experienceData = [
     date: "November, 2023 - September, 2024",
     startDate: "2023-11",
     endDate: "2024-09",
-    description: "Designed and deployed intelligent systems fully managed in AWS. <br> Voice cloning for a virtual academy professor. <br> Real-time translation agents for in-game communication. <br> Probabilistic models to generate dynamic game characters.",
-    skills: ["Python", "AWS", "SQL", "Pytorch", "Tensorflow", "Bert", "Bark", "GIT", "Docker", "NLP", "Embeddings", "Grafana", "Excel", "MLOps", "APIs"],
+    highlights: [
+      "Designed and deployed intelligent systems fully managed in AWS.",
+      "Voice cloning for a virtual academy professor.",
+      "Real-time translation agents for in-game communication.",
+      "Probabilistic models to generate dynamic game characters."
+    ],
+    skills: ["Python", "AWS", "SQL", "PyTorch", "TensorFlow", "BERT", "Bark", "Git", "Docker", "NLP", "Embeddings", "Grafana", "Excel", "MLOps", "APIs"],
     link: "https://www.linkedin.com/company/dream-junk-studios/posts/?feedView=all"
   },
   {
@@ -31,8 +39,12 @@ const experienceData = [
     date: "October, 2024 - November, 2025",
     startDate: "2024-10",
     endDate: "2025-11",
-    description: "Initiated and implemented predictive models to analyze user emotions, topics, and sentiment, uncovering actionable psychological behavioral patterns. <br> Driving the transformation from static Excel reports to interactive dashboards, enabling real-time insights and informed decision-making. <br> Designed and developed the complete ETL pipeline and AWS infrastructure powering the dashboards, ensuring automated, real-time data updates and system reliability.",
-    skills: ["Python", "AWS", "SQL", "NoSQL", "Azure", "Power BI", "Docker", "Embeddings", "GIT", "Cloudflare", "Excel", "Operaciones", "Salesforce", "NLP", "MLOps", "APIs"],
+    highlights: [
+      "Initiated and implemented predictive models to analyze user emotions, topics, and sentiment, uncovering actionable psychological behavioral patterns.",
+      "Drove the transformation from static Excel reports to interactive dashboards, enabling real-time insights and informed decision-making.",
+      "Designed and developed the complete ETL pipeline and AWS infrastructure powering the dashboards, ensuring automated, real-time data updates and system reliability."
+    ],
+    skills: ["Python", "AWS", "SQL", "NoSQL", "Azure", "Power BI", "Docker", "Embeddings", "Git", "Cloudflare", "Excel", "Operations", "Salesforce", "NLP", "MLOps", "APIs"],
     link: "https://cux.ai/"
   },
   {
@@ -44,8 +56,12 @@ const experienceData = [
     startDate: "2025-11",
     endDate: "2026-01",
     client: "Eleva AI",
-    description: "Short-term project. Designed and deployed a comprehensive observability stack using Grafana, Loki, Tempo, and Mimir, enabling real-time monitoring and minimizing system downtime. <br> Engineered scalable TypeScript API endpoints and backend services on GCP, ensuring seamless data integration and high-performance delivery. <br> Database administration and implemented synthetic data seeding pipelines, ensuring data integrity across the platform.",
-    skills: ["Python", "SQL", "Grafana", "Loki", "Tempo", "Mimir", "DevOps", "MLOps", "Nest JS", "Prisma", "GCP", "Docker", "APIs"],
+    highlights: [
+      "Designed and deployed a comprehensive observability stack using Grafana, Loki, Tempo, and Mimir, enabling real-time monitoring and minimizing system downtime.",
+      "Engineered scalable TypeScript API endpoints and backend services on GCP, ensuring seamless data integration and high-performance delivery.",
+      "Database administration and implemented synthetic data seeding pipelines, ensuring data integrity across the platform."
+    ],
+    skills: ["Python", "SQL", "Grafana", "Loki", "Tempo", "Mimir", "DevOps", "MLOps", "NestJS", "Prisma", "GCP", "Docker", "APIs"],
     link: "https://solvoglobal.com"
   },
   {
@@ -56,7 +72,11 @@ const experienceData = [
     date: "February, 2026 - March, 2026",
     startDate: "2026-02",
     endDate: "2026-03",
-    description: "Built an AI chatbot that processes invoices via OCR, stores structured data in a database, and syncs it with a management system, reducing manual data entry. <br> Developed an automated ETL bot for a financial services company, moving cleaned data to Snowflake from APEX to enable scalable analytics and centralized reporting. <br> Designed Power BI dashboards for financial performance and risk tracking, improving KPI visibility and data-driven decision-making.",
+    highlights: [
+      "Built an AI chatbot that processes invoices via OCR, stores structured data in a database, and syncs it with a management system, reducing manual data entry.",
+      "Developed an automated ETL bot for a financial services company, moving cleaned data to Snowflake from APEX to enable scalable analytics and centralized reporting.",
+      "Designed Power BI dashboards for financial performance and risk tracking, improving KPI visibility and data-driven decision-making."
+    ],
     skills: ["Python", "Airflow", "Snowflake", "LLM", "LangChain", "SQL", "AWS", "Azure", "GCP", "Power BI", "Docker"],
     link: "https://teknedatalabs.com/"
   },
@@ -68,8 +88,11 @@ const experienceData = [
     date: "March, 2026 - Present",
     startDate: "2026-03",
     endDate: "present",
-    description: "",
-    skills: [],
+    highlights: [
+      "Built a custom AI agent that generates and iterates on-demand reports and analytics from natural language. Democratized data access across non-technical teams, drastically cutting down ad-hoc request turnaround times.",
+      "Executed the end-to-end data migration from Losa0 to Lebane's ecosystem. Centralized operational metrics into a single, more advanced source of truth, eliminating legacy data silos and accelerating leadership decision-making."
+    ],
+    skills: ["Python", "SQL", "LLM", "AI Agents", "NLP", "ETL", "Data Migration", "Data Modeling", "Analytics"],
     link: "https://www.lebane.app/"
   }
 ];
@@ -161,7 +184,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Label (left side)
     const label = document.createElement("div");
     label.classList.add("gantt-label");
-    
+
     // Assign custom color variables for highlight interactions
     const colors = barColors[index % barColors.length];
     row.style.setProperty("--bar-color", colors.solid);
@@ -181,10 +204,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const track = document.createElement("div");
     track.classList.add("gantt-track");
 
-    // Bar
+    // Bar (focusable so the details can be opened from the keyboard)
     const bar = document.createElement("div");
     bar.classList.add("gantt-bar");
     bar.style.animationDelay = (index * 0.12 + 0.2) + "s";
+    bar.setAttribute("role", "button");
+    bar.tabIndex = 0;
+    bar.setAttribute("aria-label", `${item.role} at ${item.company}, ${item.date}. Show details`);
 
     const resolvedEnd = resolveEndDate(item.endDate);
     const startOffset = monthDiff(globalStart, item.startDate);
@@ -198,15 +224,24 @@ document.addEventListener("DOMContentLoaded", () => {
     bar.style.background = colors.gradient;
     bar.style.setProperty("--bar-glow", colors.glow);
 
-    // Duration text inside bar
+    // Duration text inside bar, with a live dot on the current role
     const barDuration = document.createElement("span");
     barDuration.classList.add("gantt-bar-text");
-    barDuration.textContent = formatDuration(item.startDate, resolvedEnd);
+    if (item.endDate === "present") {
+      const liveDot = document.createElement("span");
+      liveDot.classList.add("gantt-live-dot");
+      barDuration.appendChild(liveDot);
+    }
+    barDuration.appendChild(document.createTextNode(formatDuration(item.startDate, resolvedEnd)));
     bar.appendChild(barDuration);
 
-    // Click handler
-    bar.addEventListener("click", () => {
-      openModal(item.id);
+    // The whole row opens the details (bigger target on touch screens)
+    row.addEventListener("click", () => openModal(item.id, bar));
+    bar.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        openModal(item.id, bar);
+      }
     });
 
     // Tooltip
@@ -254,36 +289,43 @@ document.addEventListener("DOMContentLoaded", () => {
 
   ganttContainer.appendChild(ganttWrapper);
 
-  // Modal Logic (keep existing)
+  // "About" stats derived from the data, so they stay current
+  const totalYears = Math.floor(monthDiff(minDate, getCurrentDate()) / 12);
+  const countries = new Set(experienceData.map(d => d.location).filter(l => l !== "Remote"));
+  const stats = { years: `${totalYears}+`, roles: experienceData.length, countries: countries.size };
+  Object.entries(stats).forEach(([key, value]) => {
+    document.querySelectorAll(`[data-stat="${key}"]`).forEach(el => { el.textContent = value; });
+  });
+
+  // Experience details modal
   const modal = document.getElementById("timelineModal");
   const modalBody = document.getElementById("timeline-modal-body");
-  const closeBtn = document.querySelector(".timeline-close");
 
-  function openModal(id) {
+  function openModal(id, trigger) {
     const data = experienceData.find(item => item.id === id);
     if (!data) return;
     renderModalContent(data);
-    modal.style.display = "block";
-    document.body.style.overflow = "hidden";
+    Modal.open(modal, trigger);
   }
 
   function renderModalContent(data) {
-    let skillsHtml = data.skills.map(skill => `<span class="skill-badge">${skill}</span>`).join(" ");
+    const skillsHtml = data.skills.map(skill => `<span class="skill-badge">${skill}</span>`).join(" ");
+    const highlightsHtml = data.highlights.map(item => `<li>${item}</li>`).join("");
 
     let companyHtml = data.company;
     if (data.link) {
-      companyHtml = `<a href="${data.link}" target="_blank" style="color: inherit; text-decoration: none;">${data.company}</a>`;
+      companyHtml = `<a href="${data.link}" target="_blank" rel="noopener">${data.company}</a>`;
     }
 
     modalBody.innerHTML = `
         <div class="detail-header">
-            <h3>${data.role} @ <span class="text-primary">${companyHtml}</span></h3>
-            <span class="detail-date"><i class="fas fa-calendar-alt"></i> ${data.date}</span>
-            <span class="detail-location"><i class="fas fa-map-marker-alt"></i> ${data.location}</span>
+            <h3 id="timeline-modal-title">${data.role} @ <span class="detail-company">${companyHtml}</span></h3>
+            <span class="detail-date"><i class="fa-regular fa-calendar" aria-hidden="true"></i> ${data.date}</span>
+            <span class="detail-location"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> ${data.location}</span>
         </div>
         ${data.client ? `<p class="detail-client"><strong>Client:</strong> ${data.client}</p>` : ""}
         <div class="detail-body">
-            <p>${data.description}</p>
+            <ul class="detail-highlights">${highlightsHtml}</ul>
         </div>
         <div class="detail-skills">
             ${skillsHtml}
@@ -291,18 +333,9 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
   }
 
-  if (closeBtn) {
-    closeBtn.addEventListener("click", () => {
-      modal.style.display = "none";
-      document.body.style.overflow = "auto";
-    });
-  }
-
-  window.addEventListener("click", (event) => {
-    if (event.target === modal) {
-      modal.style.display = "none";
-      document.body.style.overflow = "auto";
-    }
+  // Cards in the Portfolio section open the matching experience
+  document.querySelectorAll("[data-experience]").forEach(trigger => {
+    trigger.addEventListener("click", () => openModal(Number(trigger.dataset.experience), trigger));
   });
 });
 
